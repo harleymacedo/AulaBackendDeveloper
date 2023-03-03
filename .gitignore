@@ -1,3 +1,4 @@
-*/node_modules
-*/.env
+/MongoDBConexao/*/node_modules
+/MongoDBConexao/*/.env
+
 .DS_Store
