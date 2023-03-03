@@ -3,10 +3,10 @@
 <h3>Assuntos abordados</h3>
 
 <ol>
-    <option>Javascript Backend</option>
-    <option>Node e Express</option>
-    <option>Conexão com MongoDB</option>
-    <option>Deploy e versionamento</option>
-    <option>Teste automático</option>
-    <option>Typescript</option>
+    <li>Javascript Backend</li>
+    <li>Node e Express</li>
+    <li>Conexão com MongoDB</li>
+    <li>Deploy e versionamento</li>
+    <li>Teste automático</li>
+    <li>Typescript</li>
 </ol>
