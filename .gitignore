@@ -1,4 +1,7 @@
 /MongoDBConexao/*/node_modules
 /MongoDBConexao/*/.env
 
+/NodeExpress/*/node_modules
+/NodeExpress/*/.env
+
 .DS_Store
