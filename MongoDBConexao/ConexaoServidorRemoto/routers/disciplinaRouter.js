@@ -1,29 +1,26 @@
 const disciplinaRouter = require('express').Router();
 const mongoose = require('mongoose');
 const disciplina = require('../models/disciplina');
-const dotenv = require('dotenv').config();
 
-//Rota para obter 1 disciplina espeícifca
-disciplinaRouter.get('/disciplina/:cod', async (req, res) => {
+//Rota para obter todas as disciplinas
+disciplinaRouter.get('/disciplina/todas', async (req, res) => {
     try {
-        console.log('Response sendo preparada');
         await mongoose.connect(process.env.DB_STR_CON);
-        const disciplinaBuscada = await disciplina.findOne({codigo: req.params.cod});
-        res.json({disciplina: disciplinaBuscada});
+        const disciplinasBuscada = await disciplina.find();
+        res.json({disciplinas: disciplinasBuscada});
     } catch (error) {
-        res.json({error: true, mensagem: 'Erro durante o cadastro'});
+        res.json({error: true, mensagem: 'Erro durante o cadastro', tipo: error});
     }
 });
 
-//Rota para obter todas as disciplinas
-disciplinaRouter.get('/disciplinas', async (req, res) => {
+disciplinaRouter.post('/disciplina', async (req, res) => {
     try {
-        console.log('Response sendo preparada');
         await mongoose.connect(process.env.DB_STR_CON);
-        const disciplinaBuscada = await disciplina.findOne({codigo: req.params.cod});
-        res.json({disciplina: disciplinaBuscada});
+        const {nome, ch} = req.body;
+        await disciplina.create({nome: nome, ch: ch});
+        res.json({mensagem: 'Cadastro realizado'});
     } catch (error) {
-        res.json({error: true, mensagem: 'Erro durante o cadastro'});
+        res.json({error: true, mensagem: 'Erro durante o cadastro', tipo: error});
     }
 });
 
