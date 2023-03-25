@@ -1,11 +1,13 @@
 <h1>Repositório para aulas de Desenvolvedor Backend</h1>
 
-<h2>Disciplina: Projeto de Sistemas Web 2</h2>
-<h2>Autor: Harley Macêdo</h2>
-<h2>Instituição de Ensino: IFCE Campus Crato</h2>
+<h3>Assuntos abordados</h3>
+<ol>
+    <li>Disciplina: Projeto de Sistemas Web 2</li>
+    <li>Autor: Harley Macêdo</li>
+    <li>Instituição de Ensino: IFCE Campus Crato</li>
+</ol>
 
 <h3>Assuntos abordados</h3>
-
 <ol>
     <li>Aula 1: Javascript Backend</li>
     <li>Aula 2:Node e Express</li>
