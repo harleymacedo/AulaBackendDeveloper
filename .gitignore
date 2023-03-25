@@ -1,7 +1,20 @@
-/MongoDBConexao/*/node_modules
-/MongoDBConexao/*/.env
 
-/NodeExpress/*/node_modules
-/NodeExpress/*/.env
+/Aula1JavascriptBackend/*/node_modules
+/Aula1JavascriptBackend/*/.env
+
+/Aula2NodeExpress/*/node_modules
+/Aula2AuNodeExpress/*/.env
+
+/Aula3DeployVersionamento/*/node_modules
+/Aula3DeployVersionamento/*/.env
+
+/Aula4ConexaoBancoDados/*/node_modules
+/Aula4ConexaoBancoDados/*/.env
+
+/Aula5TesteDocumentacao/*/node_modules
+/Aula5TesteDocumentacao/*/.env
+
+/Aula6TypeScript/*/node_modules
+/Aula6TypeScript/*/.env
 
 .DS_Store
