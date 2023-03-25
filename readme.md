@@ -1,6 +1,6 @@
 <h1>Repositório para aulas de Desenvolvedor Backend</h1>
 
-<h3>Assuntos abordados</h3>
+<h3>Informações Gerais</h3>
 <ol>
     <li>Disciplina: Projeto de Sistemas Web 2</li>
     <li>Autor: Harley Macêdo</li>
