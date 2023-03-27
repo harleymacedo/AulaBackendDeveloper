@@ -11,3 +11,5 @@ disciplinaRouter.get('/disciplina/codigo/:codigo', (req, res) => {
     });
     res.json(disciplinaBuscada);
 });
+
+module.exports = disciplinaRouter;
