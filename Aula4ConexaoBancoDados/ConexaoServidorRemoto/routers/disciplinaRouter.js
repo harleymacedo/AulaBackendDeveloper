@@ -15,10 +15,10 @@ disciplinaRouter.get('/disciplina/todas', async (req, res) => {
 });
 
 //Rota para obter uma disciplina específica
-disciplinaRouter.get('/disciplina/codigo/:codigo', async (req, res) => {
+disciplinaRouter.get('/disciplina/nome/:nome', async (req, res) => {
     try {
         await mongoose.connect(process.env.DB_STR_CON);
-        const disciplinaBuscada = await disciplina.findOne({cod: req.params.body});
+        const disciplinaBuscada = await disciplina.findOne({nome: req.params.nome});
         res.json({discplina: disciplinaBuscada});
     } catch (error) {
         res.json({error: true, mensagem: 'Erro durante a consulta', tipo: error});
