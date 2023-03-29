@@ -1,3 +1,4 @@
+//Imports gerais
 const disciplinaRouter = require('express').Router();
 const mongoose = require('mongoose');
 const disciplina = require('../models/disciplina');
@@ -6,13 +7,25 @@ const disciplina = require('../models/disciplina');
 disciplinaRouter.get('/disciplina/todas', async (req, res) => {
     try {
         await mongoose.connect(process.env.DB_STR_CON);
-        const disciplinasBuscada = await disciplina.find();
-        res.json({disciplinas: disciplinasBuscada});
+        const disciplinasBuscadas = await disciplina.find();
+        res.json({disciplinas: disciplinasBuscadas});
     } catch (error) {
-        res.json({error: true, mensagem: 'Erro durante o cadastro', tipo: error});
+        res.json({error: true, mensagem: 'Erro durante a consulta', tipo: error});
     }
 });
 
+//Rota para obter uma disciplina específica
+disciplinaRouter.get('/disciplina/codigo/:codigo', async (req, res) => {
+    try {
+        await mongoose.connect(process.env.DB_STR_CON);
+        const disciplinaBuscada = await disciplina.findOne({cod: req.params.body});
+        res.json({discplina: disciplinaBuscada});
+    } catch (error) {
+        res.json({error: true, mensagem: 'Erro durante a consulta', tipo: error});
+    }
+});
+
+//Rota para inserir uma nova disciplina no BD
 disciplinaRouter.post('/disciplina', async (req, res) => {
     try {
         await mongoose.connect(process.env.DB_STR_CON);
@@ -24,6 +37,7 @@ disciplinaRouter.post('/disciplina', async (req, res) => {
     }
 });
 
+//Rota para atualizar uma disciplina no BD
 disciplinaRouter.put('/disciplina', async (req, res) => {
     try {
         await mongoose.connect(process.env.DB_STR_CON);
@@ -35,6 +49,7 @@ disciplinaRouter.put('/disciplina', async (req, res) => {
     }
 });
 
+//Rota para excluir uma rota no BD
 disciplinaRouter.delete('/disciplina', async (req, res) => {
     try {
         await mongoose.connect(process.env.DB_STR_CON);
