@@ -17,4 +17,10 @@ professorRouter.get('/professor/nome/:nome', (req, res) => {
     res.json({"professor": professorBuscado});
 });
 
+professorRouter.post('/professor', (req, res) => {
+    const {nome, area} = req.body;
+    professores.push({nome, area});
+    res.json({mensagem: "Professor cadastrado"});
+});
+
 module.exports = professorRouter;
