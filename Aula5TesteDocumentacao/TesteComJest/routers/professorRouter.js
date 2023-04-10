@@ -23,4 +23,28 @@ professorRouter.post('/professor', (req, res) => {
     res.json({mensagem: "Professor cadastrado"});
 });
 
+professorRouter.put('/professor', (req, res) => {
+    const {nome, area} = req.body;
+    professores.forEach( (professorAtual) => {
+        if (professorAtual.nome === nome) {
+            professorAtual.area = area;
+        }
+    });
+    res.json({mensagem: "Professor atualizado"});
+});
+
+professorRouter.delete('/professor', (req, res) => {
+    const nome = req.body.nome;
+    var indice = null;
+    professores.forEach( (professorAtual, index) => {   
+        if (professorAtual.nome === nome) {
+            indice = index;
+        }          
+    });
+    if (indice) {
+        professores.splice(indice, 1);
+    }
+    res.json({mensagem: "Professor excluído"});
+});
+
 module.exports = professorRouter;

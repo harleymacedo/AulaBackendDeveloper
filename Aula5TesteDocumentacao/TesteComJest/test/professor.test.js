@@ -12,6 +12,14 @@ test('GET /professor/nome/:nome', async () => {
     expect(result.data.professor.nome).toBeTruthy();
 });
 
+test('DELETE /professor', async () => {
+    await axios.delete('http://localhost:3001/professor', {
+        "nome": "Yuri"
+    });
+    const result = await axios.get('http://localhost:3001/professor/todos');
+    expect(result.data.professores).toHaveLength(2);
+});
+
 test('POST /professor', async () => {
     await axios.post('http://localhost:3001/professor', {
         "nome": "Matheus",
@@ -22,4 +30,11 @@ test('POST /professor', async () => {
     expect(result.data.professor.nome).toBeTruthy();
 });
 
-// test('PUT /professor', asy)
+test('PUT /professor', async () => {
+    await axios.put('http://localhost:3001/professor', {
+        "nome": "Matheus",
+        "area": "Gerência de projetos 2"
+    });
+    const result = await axios.get('http://localhost:3001/professor/nome/Matheus');
+    expect(result.data.professor.area).toBe('Gerência de projetos 2');
+});
