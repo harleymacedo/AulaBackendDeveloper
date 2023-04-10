@@ -33,8 +33,8 @@ professorRouter.put('/professor', (req, res) => {
     res.json({mensagem: "Professor atualizado"});
 });
 
-professorRouter.delete('/professor', (req, res) => {
-    const nome = req.body.nome;
+professorRouter.delete('/professor/nome/:nome', (req, res) => {
+    const nome = req.params.nome;
     var indice = null;
     professores.forEach( (professorAtual, index) => {   
         if (professorAtual.nome === nome) {
@@ -44,6 +44,9 @@ professorRouter.delete('/professor', (req, res) => {
     if (indice) {
         professores.splice(indice, 1);
     }
+    console.log("Deletar foi chamadado, array atual: ");
+    console.log(professores);
+    console.log(nome);
     res.json({mensagem: "Professor excluído"});
 });
 
