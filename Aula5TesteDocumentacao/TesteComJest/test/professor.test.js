@@ -13,8 +13,8 @@ test('GET /professor/nome/:nome', async () => {
 });
 
 test('DELETE /professor', async () => {
-    await axios.delete('http://localhost:3001/professor/nome/Yuri');
-    const result = await axios.get('http://localhost:3001/professor/nome/Yuri');
+    await axios.delete('http://localhost:3001/professor/nome/Marcos');
+    const result = await axios.get('http://localhost:3001/professor/nome/Marcos');
     expect(result.data.professor).not.toBeTruthy();
 });
 

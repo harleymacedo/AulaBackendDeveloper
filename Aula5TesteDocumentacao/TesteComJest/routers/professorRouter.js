@@ -2,8 +2,8 @@ const professorRouter = require('express').Router();
 
 var professores = [
     {nome: 'Ana', area: 'Computação Gráfica'},
-    {nome: 'Harley', area: 'Programação Web'},
-    {nome: 'Yuri', area: 'Banco de dados'}
+    {nome: 'Beatriz', area: 'Engenharia de Software'},
+    {nome: 'Marcos', area: 'Banco de dados'}
 ];
 
 professorRouter.get('/professor/todos', (req, res) => {
@@ -44,9 +44,6 @@ professorRouter.delete('/professor/nome/:nome', (req, res) => {
     if (indice) {
         professores.splice(indice, 1);
     }
-    console.log("Deletar foi chamadado, array atual: ");
-    console.log(professores);
-    console.log(nome);
     res.json({mensagem: "Professor excluído"});
 });
 
