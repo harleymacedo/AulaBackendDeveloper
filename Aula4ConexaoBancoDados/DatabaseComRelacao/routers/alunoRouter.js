@@ -1,4 +1,5 @@
 const alunoRouter = require('express').Router();
+const aluno = require('../models/Aluno');
 
 alunoRouter.get('/aluno/todos', async (req, res) => {
     try {
