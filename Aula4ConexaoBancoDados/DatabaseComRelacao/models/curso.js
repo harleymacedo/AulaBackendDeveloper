@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const curso = mongoose.Schema({
-    tipo: String,
     nome: String,
+    tipo: String,
     duracao: Number
 });
 
