@@ -10,7 +10,28 @@
 <h3>Assuntos abordados</h3>
 <ul>
     <li>Aula 1: Javascript Backend</li>
+        <ul>
+            <li>Conceitos</li>
+            <li>API REST e JSON</li>
+            <li>Sintaxe Javascript para Backend</li>
+            <li>Tipos de dados</li>
+            <li>Função</li>
+            <li>Funções matemáticas</li>
+            <li>Funções para string</li>
+            <li>Funções para array</li>
+            <li>Funções para data</li>
+            <li>Funções diversas</li>
+        </ul>
     <li>Aula 2:Node e Express</li>
+        <ul>
+            <li>NodeJS</li>
+            <li>NPM</li>
+            <li>Export e require</li>
+            <li>Módulo http</li>
+            <li>Módulo fs</li>
+            <li>Módulos diversos</li>
+            <li>ExpressJS</li>
+        </ul>
     <li>Aula 3: Versionamento e Deploy</li>
         <ul>
             <li>Versionamento com Git e Github</li>
@@ -18,6 +39,13 @@
             <li>Monitoramento de recursos no servidor</li>
         </ul>
     <li>Aula 4: Conexão com Banco de dados</li>
+        <ul>
+            <li>BD não relacional</li>
+            <li>MongoDB</li>
+            <li>Mongoose</li>
+            <li>Consultas NoSQL</li>
+            <li>Relacionamento de collections</li>
+        </ul>
     <li>Aula 5: Teste e Documentação</li>
         <ul>
             <li>Tipos de teste</li>
