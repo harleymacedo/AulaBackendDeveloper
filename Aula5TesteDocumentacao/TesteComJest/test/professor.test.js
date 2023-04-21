@@ -23,7 +23,7 @@ test('POST /professor', async () => {
         "nome": "Matheus",
         "area": "Gerência de projetos"
     });
-    const result = await axios.get('http://localhost:3001/professor/nome/Ana');
+    const result = await axios.get('http://localhost:3001/professor/nome/Matheus');
     expect(result.data.professor).toBeTruthy();
     expect(result.data.professor.nome).toBeTruthy();
 });
