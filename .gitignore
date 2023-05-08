@@ -17,4 +17,7 @@
 /Aula6TypeScript/*/node_modules
 /Aula6TypeScript/*/.env
 
+/Aula7SocketStream/*/node_modules
+/Aula7SocketStream/*/.env
+
 .DS_Store

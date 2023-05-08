@@ -54,4 +54,14 @@
             <li>Arquivo readme.md</li>
         </ul>
     <li>Aula 6: Typescript</li>
+         <ul>
+            <li>Conceitos</li>
+            <li>Configuração</li>
+            <li>Tipos primitivos</li>
+            <li>Tipos escalares</li>
+        </ul>
+    <li>Aula 7: Socket e Stream</li>
+        <ul>
+            <li>Conceitos</li>
+        </ul>
 </ul>
