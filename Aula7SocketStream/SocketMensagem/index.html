@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      .div1 {
+        width: 90%;
+        height: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input id="input1" type="text" placeholder="Digite aqui" />
+      <input id="button1" type="button" value="Enviar" onclick="enviar()" />
+    </div>
+    
+    <div id="div1" class="div1">
+      <p>Mensagens: </p>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io();
+
+      function enviar() {
+        var input = document.getElementById('input1');
+        if (input.value) {
+          socket.emit('mensageiro', input.value);
+          input.value = '';
+        }
+      }
+
+      socket.on('mensageiro', function(msg) {
+        var div1 = document.getElementById("div1");
+        div1.innerHTML += "<p>" + msg + "</p>";
+      });
+    </script>
+  </body>
+</html>
