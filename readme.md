@@ -15,6 +15,7 @@
             <li>API REST e JSON</li>
             <li>Sintaxe Javascript para Backend</li>
             <li>Tipos de dados</li>
+            <li>Array</li>
             <li>Função</li>
             <li>Funções matemáticas</li>
             <li>Funções para string</li>
