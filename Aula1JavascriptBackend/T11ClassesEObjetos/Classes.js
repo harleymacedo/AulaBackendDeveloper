@@ -24,7 +24,7 @@ console.log(s1)
 //Uso de método estático
 class Carro {
     static alo () {
-        console.log('Sou um carro e preciso de mais atributos')
+        console.log('Sou um carro incompleto')
     }
 }
 Carro.alo()
