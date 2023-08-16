@@ -1,7 +1,6 @@
 //Importando e instanciando o ExpressJS
 const express = require('express')
 const app = express()
-const path = require('path')
 
 //Uso de middleware
 app.use(express.static('public'));
@@ -14,7 +13,7 @@ app.get('/lancamentos', (req, res) => {
     res.json({recomendacao: ['7 anos no Tibet', 'Tempo de glória']})
 })
 app.get('/cadastro', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
+    res.sendFile(__dirname + '/public/index.html')
 })
 
 //Ouvinte das requisições
