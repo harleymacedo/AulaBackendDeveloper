@@ -1,0 +1,19 @@
+{
+  "name": "t1projetobasico",
+  "version": "1.0.0",
+  "description": "Um projeto para exemplificar um a estrutura do ExpressJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Projeto",
+    "Exemplo",
+    "ExpressJS"
+  ],
+  "author": "Harley Macedo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
