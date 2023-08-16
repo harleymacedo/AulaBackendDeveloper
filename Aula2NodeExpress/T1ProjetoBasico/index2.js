@@ -1,6 +1,8 @@
+//Importando bibliotecas do NodeJS
 const http = require('http')
 const fs = require('fs').promises
 
+//Mapeando URLs e definindo resposta
 const server = http.createServer((req, res) => {
     switch (req.url) {
         case '/recomendacao':
@@ -23,4 +25,5 @@ const server = http.createServer((req, res) => {
     }
 })
 
+//Ouvinte de requisição
 server.listen(3000)
