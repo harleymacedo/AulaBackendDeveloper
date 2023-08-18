@@ -31,7 +31,6 @@
             <li>Rotas</li>
             <li>Middleware</li>
             <li>Segurança</li>
-            <li>Versionamento e deploy</li>
             <li>Bibliotecas importantes</li>
             <li>API de terceiros</li>
         </ol>
