@@ -27,12 +27,13 @@
     <li>Aula 2: Node e Express</li>
         <ol>
             <li>NodeJS</li>
-            <li>NPM</li>
-            <li>Export e require</li>
-            <li>Módulo http</li>
-            <li>Módulo fs</li>
-            <li>Módulos diversos</li>
             <li>ExpressJS</li>
+            <li>Rotas</li>
+            <li>Middleware</li>
+            <li>Segurança</li>
+            <li>Versionamento e deploy</li>
+            <li>Bibliotecas importantes</li>
+            <li>API de terceiros</li>
         </ol>
     <li>Aula 3: Versionamento e Deploy</li>
         <ol>
