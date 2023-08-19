@@ -10,7 +10,7 @@
 <h3>Assuntos abordados</h3>
 <ol>
     <li>Aula 1: Javascript para Backend</li>
-        <ol>
+        <ol type='1'>
             <li>Tipos de dados</li>
             <li>Escopo de variável</li>
             <li>Estruturas de seleção</li>
@@ -21,6 +21,8 @@
             <li>Funções para números</li>
             <li>Funções para array</li>
             <li>Funções para data</li>
+            <li>Funções de callback e sincronismo</li>
+            <li>Promises e Async Await</li>
             <li>Classes e objetos</li>
             <li>Módulo e exportações</li>
         </ol>
