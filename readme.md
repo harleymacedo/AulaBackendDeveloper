@@ -10,62 +10,65 @@
 <h3>Assuntos abordados</h3>
 <ol>
     <li>Aula 1: Javascript para Backend</li>
-        <ol type='1'>
-            <li>Tipos de dados</li>
-            <li>Escopo de variável</li>
-            <li>Estruturas de seleção</li>
-            <li>Estruturas de repetição</li>
-            <li>Funções - Sintaxe</li>
-            <li>Funções para string</li>
-            <li>Funções matemáticas</li>
-            <li>Funções para números</li>
-            <li>Funções para array</li>
-            <li>Funções para data</li>
-            <li>Funções de callback e sincronismo</li>
-            <li>Promises e Async Await</li>
-            <li>Classes e objetos</li>
-            <li>Módulo e exportações</li>
-        </ol>
+    <ol>
+        <li>Tipos de dados</li>
+        <li>Escopo de variável</li>
+        <li>Estruturas de seleção</li>
+        <li>Estruturas de repetição</li>
+        <li>Funções - Sintaxe</li>
+        <li>Funções para string</li>
+        <li>Funções matemáticas</li>
+        <li>Funções para números</li>
+        <li>Funções para array</li>
+        <li>Funções para data</li>
+        <li>Funções de callback e sincronismo</li>
+        <li>Promises e Async Await</li>
+        <li>Classes e objetos</li>
+        <li>Módulo e exportações</li>
+    </ol>
     <li>Aula 2: Node e Express</li>
-        <ol>
-            <li>NodeJS</li>
-            <li>ExpressJS</li>
-            <li>Rotas</li>
-            <li>Middleware</li>
-            <li>Segurança</li>
-            <li>Bibliotecas importantes</li>
-            <li>API de terceiros</li>
-        </ol>
+    <ol>
+        <li>NodeJS</li>
+        <li>ExpressJS</li>
+        <li>Rotas</li>
+        <li>Middleware</li>
+        <li>Segurança</li>
+        <li>Bibliotecas importantes</li>
+        <li>API de terceiros</li>
+    </ol>
     <li>Aula 3: Versionamento e Deploy</li>
-        <ol>
-            <li>Versionamento com Git e Github</li>
-            <li>Deploy de Web App com Vercel</li>
-            <li>Monitoramento de recursos no servidor</li>
-        </ol>
+    <ol>
+        <li>Versionamento com Git e Github</li>
+        <li>Deploy de Web App com Vercel</li>
+        <li>Monitoramento de recursos no servidor</li>
+    </ol>
     <li>Aula 4: Conexão com Banco de dados</li>
-        <ol>
-            <li>BD não relacional</li>
-            <li>MongoDB</li>
-            <li>Mongoose</li>
-            <li>Consultas NoSQL</li>
-            <li>Relacionamento de collections</li>
-        </ol>
+    <ol>
+        <li>BD não relacional</li>
+        <li>MongoDB</li>
+        <li>Mongoose</li>
+        <li>Consultas NoSQL</li>
+        <li>Relacionamento de collections</li>
+    </ol>
     <li>Aula 5: Teste e Documentação</li>
-        <ol>
-            <li>Tipos de teste</li>
-            <li>Ferramenta JEST</li>
-            <li>Documentação de API</li>
-            <li>Arquivo readme.md</li>
-        </ol>
+    <ol>
+        <li>Tipos de teste</li>
+        <li>Ferramenta JEST</li>
+        <li>Documentação de API</li>
+        <li>Arquivo readme.md</li>
+    </ol>
     <li>Aula 6: Typescript</li>
-         <ol>
-            <li>Conceitos</li>
-            <li>Configuração</li>
-            <li>Tipos primitivos</li>
-            <li>Tipos escalares</li>
-        </ol>
+    <ol>
+        <li>Conceitos</li>
+        <li>Configuração</li>
+        <li>Tipos primitivos</li>
+        <li>Tipos escalares</li>
+        <li>Tipos no Express</li>
+    </ol>
     <li>Aula 7: Socket e Stream</li>
-        <ol>
-            <li>Conceitos</li>
-        </ol>
-</ul>
+    <ol>
+        <li>Conceitos</li>
+        <li>Lado servidor</li>
+        <li>Lado cliente</li>
+    </ol>
+</ol>
