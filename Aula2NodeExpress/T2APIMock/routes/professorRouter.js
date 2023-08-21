@@ -1,3 +1,4 @@
+//Importando o objeto Router e criando os dados mockados
 const professorRouter = require('express').Router();
 var professores = [
     {nome: 'Marcos', area: 'Banco de dados'},
@@ -10,6 +11,7 @@ var professores = [
     {nome: 'Yolanda', area: 'Engenharia de software'},
 ];
 
+//Rota para obter todos os professores
 professorRouter.get('/professor/todos', (req, res) => {
     try {
         res.json(professores);
@@ -18,6 +20,7 @@ professorRouter.get('/professor/todos', (req, res) => {
     }
 });
 
+//Rota para obter um professor através do nome
 professorRouter.get('/professor/:nome', (req, res) => {
     try {
         const professorEncontrado = professores.find( (item) => {
@@ -29,6 +32,7 @@ professorRouter.get('/professor/:nome', (req, res) => {
     }
 });
 
+//Rota para adicionar um novo professor
 professorRouter.post('/professor', (req, res) => {
     try {
         const novoProfessor = {nome: req.body.nome, area: req.body.area};
@@ -39,6 +43,7 @@ professorRouter.post('/professor', (req, res) => {
     }
 });
 
+//Rota para alterar um professor
 professorRouter.put('/professor', (req, res) => {
     try {
         professores.forEach( (objetoAtual) => {
@@ -52,6 +57,7 @@ professorRouter.put('/professor', (req, res) => {
     }
 });
 
+//Rota para excluir um professor
 professorRouter.delete('/professor', (req, res) => {
     try {
         professores = professores.filter( (objetoAtual) => {
