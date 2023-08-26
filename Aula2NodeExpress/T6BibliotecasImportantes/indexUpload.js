@@ -1,10 +1,12 @@
 //Importando e instanciando o ExpressJS
 const express = require('express')
 const app = express()
-const multer = require('multer')
 
 //Uso de middleware
 app.use(express.static('public'))
+
+//Importando o multer
+const multer = require('multer')
 
 // Configuração de armazenamento
 const storage = multer.diskStorage({
@@ -12,16 +14,14 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/')
     },
     filename: function (req, file, cb) {
-        // Extração da extensão do arquivo original:
+        // Extração de nome e extensão do arquivo original
         const extensaoArquivo = file.originalname.split('.')[1]
-        // Cria um código randômico que será o nome do arquivo
-        const novoNomeArquivo = require('crypto')
-            .randomBytes(64)
-            .toString('hex')
-        // Indica o novo nome do arquivo:
+        const novoNomeArquivo = file.originalname.split('.')[0]
         cb(null, `${novoNomeArquivo}.${extensaoArquivo}`)
     }
-});
+})
+
+//Instanciando o multer
 const upload = multer({ storage })
 
 //Definindo rotas com suas devidas respostas
