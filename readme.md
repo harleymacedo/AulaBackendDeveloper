@@ -32,7 +32,6 @@
         <li>ExpressJS</li>
         <li>Rotas</li>
         <li>Middleware</li>
-        <li>Segurança</li>
         <li>Bibliotecas importantes</li>
         <li>API de terceiros</li>
     </ol>
@@ -57,7 +56,14 @@
         <li>Documentação de API</li>
         <li>Arquivo readme.md</li>
     </ol>
-    <li>Aula 6: Typescript</li>
+    <li>Aula 6: Segurança de aplicações web</li>
+        <ol>
+            <li>Autenticação</li>
+            <li>Autorização</li>
+            <li>JWT</li>
+            <li>Login social</li>
+        </ol>
+    <li>Aula 7: Typescript</li>
     <ol>
         <li>Conceitos</li>
         <li>Configuração</li>
@@ -65,7 +71,7 @@
         <li>Tipos escalares</li>
         <li>Tipos no Express</li>
     </ol>
-    <li>Aula 7: Socket e Stream</li>
+    <li>Aula 8: Socket e Stream</li>
     <ol>
         <li>Conceitos</li>
         <li>Lado servidor</li>
