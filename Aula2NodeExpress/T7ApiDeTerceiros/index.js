@@ -4,8 +4,29 @@ const app = express()
 const axios = require('axios')
 const dotenv = require('dotenv').config()
 
-app.get('/perguntaChatGpt', (req, res) => {
-    res.json({ resposta: 'Teste resposta' })
+app.get('/perguntaChat', async (req, res) => {
+    const axios = require('axios');
+
+    const options = {
+        method: 'GET',
+        url: 'https://ai-chatbot.p.rapidapi.com/chat/free',
+        params: {
+            message: 'What is the capital of the United States?',
+            uid: 'user1'
+        },
+        headers: {
+            'X-RapidAPI-Key': process.env.X_RapidAPI_Key,
+            'X-RapidAPI-Host': 'ai-chatbot.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await axios.request(options);
+        console.log(response.data)
+        res.json({mensagem: response.data.chatbot.response})
+    } catch (error) {
+        console.error(error);
+    }
 })
 
 app.get('/tradutorInglesPortugues', (req, res) => {
@@ -14,7 +35,7 @@ app.get('/tradutorInglesPortugues', (req, res) => {
 
 app.get('/imagemOcr', async (req, res) => {
     const encodedParams = new URLSearchParams();
-    encodedParams.set('imageUrl', 'https://cdn.pensador.com/img/imagens/pe/ns/pensador_mensagens_de_fe_01.jpg');
+    encodedParams.set('imageUrl', 'https://enfoquevisual.com.br/cdn/shop/products/AVS-012.jpg');
     const options = {
         method: 'POST',
         url: 'https://image-to-text-ocr1.p.rapidapi.com/ocr',
@@ -28,7 +49,7 @@ app.get('/imagemOcr', async (req, res) => {
     try {
         const response = await axios.request(options)
         console.log(response.data.text)
-        res.json({texto: response.data.text})
+        res.json({ texto: response.data.text })
     } catch (error) {
         console.error(error)
     }
