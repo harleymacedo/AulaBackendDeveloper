@@ -23,7 +23,8 @@ disciplinaRouter.get('/disciplina/codigo/:codigo', (req, res) => {
 
 disciplinaRouter.post('/disciplina', (req, res) => {
     try {
-        const novaDisc = {nome: 'Sistemas Operacionais', codigo: 'SO', cargaHoraria: 80}
+        const {nome, codigo, cargaHoraria} = req.body
+        const novaDisc = {nome: nome, codigo: codigo, cargaHoraria: cargaHoraria}
         disciplinas.push(novaDisc)
         res.json({mensagem: 'Disciplina adicionada'})    
     } catch (error) {
