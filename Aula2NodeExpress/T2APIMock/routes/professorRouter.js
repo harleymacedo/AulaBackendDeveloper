@@ -27,7 +27,7 @@ professorRouter.get('/professor/:nome', (req, res) => {
     try {
         const professorEncontrado = professores.find( (item) => {
             return item.nome === req.params.nome
-        });
+        })
         res.json(professorEncontrado)
     } catch (error) {
         res.json({erro: true, mensagem: 'Não foi possivel recuperar os dados.'})
@@ -38,7 +38,7 @@ professorRouter.get('/professor/:nome', (req, res) => {
 professorRouter.post('/professor', (req, res) => {
     try {
         const novoProfessor = {nome: req.body.nome, area: req.body.area}
-        professores.push(novoProfessor);
+        professores.push(novoProfessor)
         res.json({mensagem: 'Professor cadastrado com sucesso'})
     } catch (error) {
         res.json({mensagem: 'Erro durante o cadastro', erro: true})
