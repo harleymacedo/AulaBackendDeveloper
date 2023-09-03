@@ -4,6 +4,14 @@ const jwt = require('jsonwebtoken')
 
 app.get('/login', (req, res) => {
     try {
+        res.sendFile(__dirname + '/public/index.html')
+    } catch (error) {
+        res.sendFile(__dirname + '/public/erro.html')
+    }
+})
+
+app.post('/validaLogin', (req, res) => {
+    try {
         
     } catch (error) {
         
