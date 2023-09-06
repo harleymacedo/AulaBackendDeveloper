@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const dotenv = require('dotenv').config()
 const disciplinaRouter = require('./routes/disciplinaRouter')
+const cors = require('cors')
 
 app.use(express.json())
 app.use(disciplinaRouter)
