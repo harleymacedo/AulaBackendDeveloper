@@ -38,7 +38,8 @@
     <li>Aula 3: Versionamento e Deploy</li>
     <ol>
         <li>Versionamento com Git e Github</li>
-        <li>Deploy de Web App com Vercel</li>
+        <li>Deploy de Web API com Vercel</li>
+        <li>Variáveis de ambiente</li>
         <li>Monitoramento de recursos no servidor</li>
     </ol>
     <li>Aula 4: Conexão com Banco de dados</li>
