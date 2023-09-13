@@ -78,4 +78,17 @@
         <li>Lado servidor</li>
         <li>Lado cliente</li>
     </ol>
+    <li>Aula 9: Backend e IoT</li>
+    <ol>
+        <li>Conceitos</li>
+        <li>Comunicação direta com dispositivo</li>
+        <li>Comunicação por hub remoto</li>
+        <li>Uso do firebase</li>
+    </ol>
+    <li>Aula 10: Projeto Gerenciado</li>
+    <ol>
+        <li>Conceitos do Scrum</li>
+        <li>Ferramenta Jira</li>
+        <li>Projeto completo no Jira</li>
+    </ol>
 </ol>
