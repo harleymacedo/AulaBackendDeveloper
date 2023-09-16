@@ -78,14 +78,20 @@
         <li>Lado servidor</li>
         <li>Lado cliente</li>
     </ol>
-    <li>Aula 9: Backend e IoT</li>
+    <li>Aula 9: NextJS</li>
+    <ol>
+        <li>Conceitos</li>
+        <li>Pages</li>
+        <li>Rotas</li>
+    </lo>
+    <li>Aula 10: Backend e IoT</li>
     <ol>
         <li>Conceitos</li>
         <li>Comunicação direta com dispositivo</li>
         <li>Comunicação por hub remoto</li>
         <li>Uso do firebase</li>
     </ol>
-    <li>Aula 10: Projeto Gerenciado</li>
+    <li>Aula 11: Projeto Gerenciado</li>
     <ol>
         <li>Conceitos do Scrum</li>
         <li>Ferramenta Jira</li>
