@@ -6,6 +6,8 @@ const cors = require('cors')
 const dotenv = require('dotenv').config()
 const usuarios = require('./usuarios')
 
+app.use(express.urlencoded({extended: true}))
+
 //Verificar se a requisição possui token válido, e portanto, o usuário está logado
 const verificarJWT = (req, res, next) => {
     const token = req.body.token
@@ -23,7 +25,7 @@ const verificarJWT = (req, res, next) => {
 //Rota para receber página html, para digitar usuário e senha
 app.get('/login', (req, res) => {
     try {
-        res.sendFile(__dirname + '/public/index.html')
+        res.sendFile(__dirname + '/public/login.html')
     } catch (error) {
         res.sendFile(__dirname + '/public/erro.html')
     }
@@ -36,8 +38,9 @@ app.post('/validaLogin', (req, res) => {
         if (usuario === process.env.USUARIO && senha === process.env.SENHA) {
             let novoToken = jwt.sign({usuario}, process.env.APP_KEY, {expiresIn: 9000})
             res.json({logado: true, token: novoToken})
+        } else {
+            res.json({logado: false, mensagem: 'Usuário ou senha errados.'})    
         }
-        res.json({logado: false, mensagem: 'Usuário ou senha errados.'})    
     } catch (error) {
         res.json({logado: false, mensagem: 'Erro durante o login.'})     
     }
