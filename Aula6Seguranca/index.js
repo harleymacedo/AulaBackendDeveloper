@@ -6,6 +6,8 @@ const cors = require('cors')
 const dotenv = require('dotenv').config()
 const usuarios = require('./usuarios')
 
+//Reconhecer dados enviados no body da requisição
+app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //Verificar se a requisição possui token válido, e portanto, o usuário está logado
