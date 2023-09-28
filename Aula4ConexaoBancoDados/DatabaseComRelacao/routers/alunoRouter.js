@@ -2,6 +2,7 @@ const alunoRouter = require('express').Router()
 const aluno = require('../models/aluno')
 const mongoose = require('mongoose')
 
+//Rota GET para obter todos os alunos
 alunoRouter.get('/aluno/todos', async (req, res) => {
     try {
         await mongoose.connect(process.env.BD_STR_CON)
@@ -12,6 +13,7 @@ alunoRouter.get('/aluno/todos', async (req, res) => {
     }
 })
 
+//Rota GET para obter 1 alunos, pela matrícula
 alunoRouter.get('/aluno/matricula/:matricula', async (req, res) => {
     try {
         await mongoose.connect(process.env.BD_STR_CON)
@@ -22,6 +24,7 @@ alunoRouter.get('/aluno/matricula/:matricula', async (req, res) => {
     }
 })
 
+//Rota GET para obter lista de alunos, pelo nome do curso
 alunoRouter.get('/aluno/curso/:cursoNome', async (req, res) => {
     try {
         await mongoose.connect(process.env.BD_STR_CON)
@@ -32,12 +35,27 @@ alunoRouter.get('/aluno/curso/:cursoNome', async (req, res) => {
     }
 })
 
+//Rota POST para inserir um novo aluno
 alunoRouter.post('/aluno', async (req, res) => {
     try {
         await mongoose.connect(process.env.BD_STR_CON)
         const {matricula, nome, email, cursoNome} = req.body
         await aluno.create({matricula: matricula, nome: nome, email: email, cursoNome: cursoNome})
         res.json({mensagem: 'Aluno cadastrado com sucesso'})
+    } catch (error) {
+        res.json({erro: true, mensagem: 'Erro durante consulta'})
+    }
+})
+
+//Rota PUT para alterar um aluno, pela matrícula
+alunoRouter.put('/aluno', async () => {
+    try {
+        await mongoose.connect(process.env.BD_STR_CON)
+        await aluno.findOneAndUpdate(
+            {matricula: req.body.matricula},
+            req.body
+        )
+        res.json({mensagem: 'Aluno atualizado com sucesso'})
     } catch (error) {
         res.json({erro: true, mensagem: 'Erro durante consulta'})
     }
