@@ -48,7 +48,7 @@ alunoRouter.post('/aluno', async (req, res) => {
 })
 
 //Rota PUT para alterar um aluno, pela matrícula
-alunoRouter.put('/aluno', async () => {
+alunoRouter.put('/aluno', async (req, res) => {
     try {
         await mongoose.connect(process.env.BD_STR_CON)
         await aluno.findOneAndUpdate(
@@ -56,6 +56,17 @@ alunoRouter.put('/aluno', async () => {
             req.body
         )
         res.json({mensagem: 'Aluno atualizado com sucesso'})
+    } catch (error) {
+        res.json({erro: true, mensagem: 'Erro durante consulta'})
+    }
+})
+
+//Rota DELETE para excluir um aluno, pela matrícula
+alunoRouter.delete('/aluno', async (req, res) => {
+    try {
+        await mongoose.connect(process.env.BD_STR_CON)
+        await aluno.deleteOne({matricula: req.body.matricula})
+        res.json({mensagem: 'Aluno removido com sucesso'})
     } catch (error) {
         res.json({erro: true, mensagem: 'Erro durante consulta'})
     }
