@@ -1,8 +1,8 @@
-const express = require('express');
-const app = express();
-const professorRouter = require('./routers/professorRouter');
+const express = require('express')
+const app = express()
+const professorRouter = require('./routers/professorRouter')
 
-app.use(express.json());
-app.use(professorRouter);
+app.use(express.json())
+app.use(professorRouter)
 
-app.listen(3001);
+app.listen(3000)

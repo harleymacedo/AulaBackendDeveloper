@@ -83,7 +83,7 @@
         <li>Conceitos</li>
         <li>Pages</li>
         <li>Rotas</li>
-    </lo>
+    </ol>
     <li>Aula 10: Backend e IoT</li>
     <ol>
         <li>Conceitos</li>
