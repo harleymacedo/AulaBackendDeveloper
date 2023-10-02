@@ -1,5 +1,7 @@
 <h3>Documentação da API</h3>
 
+<h2>Descrição dos endpoints</h2>
+
 <table>
     <thead>
         <th>Endpoint</th> <th>Descrição</th>
@@ -13,3 +15,11 @@
         <td>Obter um professor específico, resposta em JSON, com um objeto único</td>
     </tr>
 </table>
+
+<h2>Resultado de uma requisição para obter professor</h2>
+<code>
+    {
+        "nome": "Ana",
+        "area": "Computação Gráfica"
+    }
+</code>
