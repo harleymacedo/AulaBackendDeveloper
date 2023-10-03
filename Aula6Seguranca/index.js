@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const dotenv = require('dotenv').config()
 const usuarios = require('./usuarios')
+const crypto = require('crypto')
 
 //Reconhecer dados enviados no body da requisição
 app.use(express.json())
@@ -49,9 +50,35 @@ app.post('/validaLogin', (req, res) => {
 })
 
 //Rota para obter usuários, com necessidade de informar token
-app.delete('/usuario/todos', verificarJWT, (req, res) => {
+app.get('/usuario/todos', verificarJWT, (req, res) => {
     try {
         res.json(usuarios)
+    } catch (error) {
+        res.json({mensagem: 'Erro durante a consulta'})
+    }
+})
+
+//Rota para cadastrar usuário novo, criptografando a senha 
+app.post('/usuario/novo', verificarJWT, (req, res) => {
+    try {
+        const {nome, senha} = req.body
+        let hash = crypto.createHmac('sha512', process.env.APP_KEY)
+        hash.update(senha)
+        hash = hash.digest('hex')
+        usuarios.push({"nome": nome, "senha": hash})
+        res.json({mensagem: 'Usuário cadastrado com sucesso'})
+    } catch (error) {
+        res.json({mensagem: 'Erro durante a consulta'})
+    }
+})
+
+app.get('/usuario/recuperarSenha', (req, res) => {
+    try {
+        //Gerar token
+        let tokenRecuperarSenha = crypto.randomBytes(10).toString('hex')
+        //Enviar email com token
+        //Atualizar BD com redefinição de senha
+        res.json({codigo: tokenRecuperarSenha})
     } catch (error) {
         res.json({mensagem: 'Erro durante a consulta'})
     }
