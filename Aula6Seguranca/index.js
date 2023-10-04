@@ -5,11 +5,18 @@ const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const dotenv = require('dotenv').config()
 const usuarios = require('./usuarios')
-const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 
 //Reconhecer dados enviados no body da requisição
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
+//Configurando o CORS
+app.use(cors({
+    origin: ['https://node-express-api-rest-mock.vercel.app',
+        'https://node-express-api-rest-mock.herokuapp.com'
+    ]
+}))
 
 //Verificar se a requisição possui token válido, e portanto, o usuário está logado
 const verificarJWT = (req, res, next) => {
@@ -50,7 +57,7 @@ app.post('/validaLogin', (req, res) => {
 })
 
 //Rota para obter usuários, com necessidade de informar token
-app.get('/usuario/todos', verificarJWT, (req, res) => {
+app.get('/usuario/todos', (req, res) => {
     try {
         res.json(usuarios)
     } catch (error) {
@@ -59,16 +66,27 @@ app.get('/usuario/todos', verificarJWT, (req, res) => {
 })
 
 //Rota para cadastrar usuário novo, criptografando a senha 
-app.post('/usuario/novo', verificarJWT, (req, res) => {
+app.post('/usuario/novo', (req, res) => {
     try {
         const {nome, senha} = req.body
-        let hash = crypto.createHmac('sha512', process.env.APP_KEY)
-        hash.update(senha)
-        hash = hash.digest('hex')
-        usuarios.push({"nome": nome, "senha": hash})
+        var salt = bcrypt.genSaltSync(10)
+        var senhaParaSalvar = bcrypt.hashSync(senha, salt)
+        usuarios.push({nome: nome, senha: senhaParaSalvar})
         res.json({mensagem: 'Usuário cadastrado com sucesso'})
     } catch (error) {
-        res.json({mensagem: 'Erro durante a consulta'})
+        res.json({mensagem: 'Erro durante a consulta', erro: error.message})
+    }
+})
+
+//Simulação de um comparação de senha para um processo de login
+app.post('/usuario/comparar', (req, res) => {
+    try {
+        const {nome, senha} = req.body
+        const usuario = usuarios.find((usuario) => {return usuario.nome === nome})
+        const resultado = bcrypt.compareSync(senha, usuario.senha)
+        res.json({resultado: resultado})
+    } catch (error) {
+        res.json({mensagem: 'Erro durante a consulta', erro: error.message})
     }
 })
 
