@@ -57,7 +57,7 @@ app.post('/validaLogin', (req, res) => {
 })
 
 //Rota para obter usuários, com necessidade de informar token
-app.get('/usuario/todos', (req, res) => {
+app.get('/usuario/todos', verificarJWT, (req, res) => {
     try {
         res.json(usuarios)
     } catch (error) {
