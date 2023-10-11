@@ -10,10 +10,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/temperatura', (req, res) => {
-  res.sendFile(__dirname + '/indexTemperatura.html');
-});
-
 io.on('connection', (socket) => {
   console.log("novo usuário conectado");
   socket.on('mensageiro', (msg) => {
