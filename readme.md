@@ -84,6 +84,7 @@
         <li>Pages</li>
         <li>Rotas</li>
         <li>API</li>
+        <li>Estilo</li>
     </ol>
     <li>Aula 10: Backend e IoT</li>
     <ol>
