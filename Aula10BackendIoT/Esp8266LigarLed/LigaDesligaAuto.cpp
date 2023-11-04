@@ -8,6 +8,6 @@ void loop() {
   digitalWrite(D1, HIGH);
   delay(1000);
 
-  digitalWrite(D1, LOW);
+  digitalWrite(1, LOW);
   delay(1000);
 }
