@@ -86,12 +86,11 @@
         <li>API</li>
         <li>Estilo</li>
     </ol>
-    <li>Aula 10: Backend e IoT</li>
+    <li>Aula 10: Web e IoT</li>
     <ol>
-        <li>Conceitos</li>
-        <li>Comunicação direta com dispositivo</li>
-        <li>Comunicação por hub remoto</li>
-        <li>Uso do firebase</li>
+        <li>Conceitos de IoT</li>
+        <li>Enviando e recebendo dados de um dispositivo</li>
+        <li>Módulos e sensores</li>
     </ol>
     <li>Aula 11: Projeto Gerenciado</li>
     <ol>
