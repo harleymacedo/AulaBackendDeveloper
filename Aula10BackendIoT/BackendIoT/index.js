@@ -12,7 +12,7 @@ app.get('/temperatura', (req, res) => {
 })
 
 app.post('/temperatura', (req, res) => {
-    temperaturaAtual = req.params.novaTemperatura
+    temperaturaAtual = req.body.novaTemperatura
     res.json({mensagem: 'Temperatura atualizada'})
 })
 
