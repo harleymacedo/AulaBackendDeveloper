@@ -78,24 +78,10 @@
         <li>Lado servidor</li>
         <li>Lado cliente</li>
     </ol>
-    <li>Aula 9: NextJS</li>
-    <ol>
-        <li>Conceitos</li>
-        <li>Pages</li>
-        <li>Rotas</li>
-        <li>API</li>
-        <li>Estilo</li>
-    </ol>
-    <li>Aula 10: Web e IoT</li>
+    <li>Aula 9: Web e IoT</li>
     <ol>
         <li>Conceitos de IoT</li>
         <li>Enviando e recebendo dados de um dispositivo</li>
         <li>Módulos e sensores</li>
-    </ol>
-    <li>Aula 11: Projeto Gerenciado</li>
-    <ol>
-        <li>Conceitos do Scrum</li>
-        <li>Ferramenta Jira</li>
-        <li>Projeto completo no Jira</li>
     </ol>
 </ol>

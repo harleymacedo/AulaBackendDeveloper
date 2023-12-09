@@ -14,10 +14,16 @@
 /Aula5TesteDocumentacao/*/node_modules
 /Aula5TesteDocumentacao/*/.env
 
+/Aula6Seguranca/*/node_modules
+/Aula6Seguranca/*/.env
+
 /Aula7TypeScript/*/node_modules
 /Aula7TypeScript/*/.env
 
-/Aula9SocketStream/*/node_modules
-/Aula9SocketStream/*/.env
+/Aula8SocketStream/*/node_modules
+/Aula8SocketStream/*/.env
+
+/Aula9BackendIoT/*/node_modules
+/Aula9BackendIoT/*/.env
 
 .DS_Store
