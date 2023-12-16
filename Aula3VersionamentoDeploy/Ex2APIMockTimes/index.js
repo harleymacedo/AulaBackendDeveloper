@@ -15,7 +15,8 @@ app.get('/times/todos', (req, res) => {
 
 //Rota get para obter um time pelo nome
 app.get('/times/:nome', (req, res) => {
-    res.json({"time": null})
+    const timeBuscado = times.find( (elemento) => elemento.nome == req.params.nome )
+    res.json({"time": timeBuscado})
 })
 
 //Rota post para inserir um novo time
@@ -23,8 +24,8 @@ app.post('/times/inserir', (req, res) => {
     res.json({"mensagem": "Novo time inserido"})
 })
 
-//Rota update para atualizar um time, pelo nome
-app.update('/times/atualizar', (req, res) => {
+//Rota put para atualizar um time, pelo nome
+app.put('/times/atualizar', (req, res) => {
     res.json({"mensagem": "Time atualizado"})
 })
 
