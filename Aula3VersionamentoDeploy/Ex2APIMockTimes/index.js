@@ -21,6 +21,7 @@ app.get('/times/:nome', (req, res) => {
 
 //Rota post para inserir um novo time
 app.post('/times/inserir', (req, res) => {
+    times.push({nome: req.params.nome, pontos: req.params.pontos})
     res.json({"mensagem": "Novo time inserido"})
 })
 
