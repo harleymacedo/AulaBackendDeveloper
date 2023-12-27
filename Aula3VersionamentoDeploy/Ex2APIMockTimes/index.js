@@ -30,16 +30,27 @@ app.post('/time/inserir', (req, res) => {
 
 //Rota put para atualizar um time, pelo nome
 app.put('/time/atualizar', (req, res) => {
-    timeProcurado = times.find( (elemento) => elemento.nome == req.params.nome )
+    timeProcurado = times.find( (elemento) => elemento.nome == req.body.nome )
     if (timeProcurado != null) {
-        timeProcurado.pontos = req.params.pontos
+        timeProcurado.pontos = req.body.pontos
+        res.json({"mensagem": "Time atualizado"})
+    } else {
+        res.json({"mensagem": "Time não encontrado"})
     }
-    res.json({"mensagem": "Time atualizado"})
 })
 
 //Rota delete para excluir um time, pelo nome
 app.delete('/time/excluir', (req, res) => {
-    res.json({"mensagem": "Time exluido"})
+    timeProcurado = times.find( (elemento) => elemento.nome == req.body.nome )
+    if (timeProcurado != null) {
+        var novoArray = times.filter( (elemento) => {
+            return elemento.nome != req.body.nome
+        } )
+        times = novoArray
+        res.json({"mensagem": "Time excluído"})
+    } else {
+        res.json({"mensagem": "Time não localizado para exclusão"})
+    }
 })
 
 //Ouvinte de requisições
