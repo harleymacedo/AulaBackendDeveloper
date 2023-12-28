@@ -30,9 +30,14 @@ app.post('/time/inserir', (req, res) => {
 
 //Rota put para atualizar um time, pelo nome
 app.put('/time/atualizar', (req, res) => {
-    timeProcurado = times.find( (elemento) => elemento.nome == req.body.nome )
-    if (timeProcurado != null) {
-        timeProcurado.pontos = req.body.pontos
+    let encontrado = false
+    times.forEach( (elemento) => {
+        if (elemento.nome == req.body.nome) {
+            encontrado = true
+            elemento.pontos = req.body.pontos
+        }
+    }) 
+    if (encontrado) {
         res.json({"mensagem": "Time atualizado"})
     } else {
         res.json({"mensagem": "Time não encontrado"})
