@@ -1,6 +1,7 @@
 const disciplinaRouter = require('express').Router();
-const disciplinas = require('../model/disciplinaModel');
+var disciplinas = require('../model/disciplinaModel');
 
+//Rota get para obter todas as disciplinas
 disciplinaRouter.get('/disciplina/todas', (req, res) => {
     try {
         res.json(disciplinas)      
@@ -9,6 +10,7 @@ disciplinaRouter.get('/disciplina/todas', (req, res) => {
     }
 })
 
+//Rota get para obter uma disciplina pelo código
 disciplinaRouter.get('/disciplina/codigo/:codigo', (req, res) => {
     try {
         const disciplinaBuscada = disciplinas.find( (objetoAtual) => {
@@ -18,9 +20,9 @@ disciplinaRouter.get('/disciplina/codigo/:codigo', (req, res) => {
     } catch (error) {
         res.json({mensagem: 'Erro durante o procedimento'})
     }
-    
 })
 
+//Rota post para inserir uma nova disciplina
 disciplinaRouter.post('/disciplina', (req, res) => {
     try {
         const {nome, codigo, cargaHoraria} = req.body
@@ -32,6 +34,7 @@ disciplinaRouter.post('/disciplina', (req, res) => {
     }
 })
 
+//Rota put para atualizar uma disciplina
 disciplinaRouter.put('/disciplina', (req, res) => {
     try {
         disciplinas.forEach( (objetoAtual) => {
@@ -46,6 +49,7 @@ disciplinaRouter.put('/disciplina', (req, res) => {
     }
 })
 
+//Rota delete para excluir uma disciplina pelo código
 disciplinaRouter.delete('/disciplina/:codigo', (req, res) => {
     try {
         disciplinas = disciplinas.filter( (objetoAtual) => {
