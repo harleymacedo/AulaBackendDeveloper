@@ -32,8 +32,8 @@ app.get('/', (req, res) => {
         {
             "Rota": "DELETE /time/excluir",
             "Descrição": "Rota delete para excluir um time, pelo nome"
-        },
-    ]
+        }
+    ])
 })
 
 //Rota get para obter todos os times
