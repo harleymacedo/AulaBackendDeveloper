@@ -8,7 +8,28 @@ app.use(express.json())
 
 //Rota para teste simples
 app.get('/', (req, res) => {
-    res.json({'mensagem': 'Rota / acionada'})
+    res.json([
+        {
+            "Rota": "GET /time/todos",
+            "Descrição": "Rota get para obter todos os times"
+        },
+        {
+            "Rota": "GET /time/nome/:nome",
+            "Descrição": "Rota get para obter um time pelo nome"
+        },
+        {
+            "Rota": "POST /time/inserir",
+            "Descrição": "Rota post para inserir um novo time"
+        },
+        {
+            "Rota": "PUT /time/atualizar",
+            "Descrição": "Rota put para atualizar um time, pelo nome"
+        },
+        {
+            "Rota": "DELETE /time/excluir",
+            "Descrição": "Rota delete para excluir um time, pelo nome"
+        },
+    ]
 })
 
 //Rota get para obter todos os times
@@ -58,5 +79,5 @@ app.delete('/time/excluir', (req, res) => {
     }
 })
 
-//Ouvinte de requisições
-app.listen(3000)
+//Atendendte de requisições, a porta pode ser definida automaticamente pelo servidor
+app.listen(process.env.PORT || 3000)
