@@ -1,6 +1,10 @@
 //Importações gerais
 const express = require('express')
 const app = express()
+
+//Biblioteca para configurar e reconhecer as variáveis no arquivo .env
+const dotenv = require('dotenv').config()
+//Lista de times mockado
 var times = require('./times')
 
 //Middleware para utilizar body da requisição
