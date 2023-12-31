@@ -5,35 +5,16 @@ const app = express()
 //Biblioteca para configurar e reconhecer as variáveis no arquivo .env
 const dotenv = require('dotenv').config()
 //Lista de times mockado
-var times = require('./times')
+var times = require('./model/times')
+//Lista de rotas mockada
+const listaRotas = require('./model/listaRotas')
 
 //Middleware para utilizar body da requisição
 app.use(express.json())
 
-//Rota para teste simples
+//Rota para listar as rotas disponíveis
 app.get('/', (req, res) => {
-    res.json([
-        {
-            "Rota": "GET /time/todos",
-            "Descrição": "Rota get para obter todos os times"
-        },
-        {
-            "Rota": "GET /time/nome/:nome",
-            "Descrição": "Rota get para obter um time pelo nome"
-        },
-        {
-            "Rota": "POST /time/inserir",
-            "Descrição": "Rota post para inserir um novo time"
-        },
-        {
-            "Rota": "PUT /time/atualizar",
-            "Descrição": "Rota put para atualizar um time, pelo nome"
-        },
-        {
-            "Rota": "DELETE /time/excluir",
-            "Descrição": "Rota delete para excluir um time, pelo nome"
-        }
-    ])
+    res.json(listaRotas)
 })
 
 //Rota get para obter todos os times
