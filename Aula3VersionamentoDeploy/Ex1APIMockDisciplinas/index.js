@@ -2,7 +2,6 @@
 const express = require('express')
 const app = express()
 
-
 //Biblioteca para configurar e reconhecer as variáveis no arquivo .env
 const dotenv = require('dotenv').config()
 const disciplinaRouter = require('./routes/disciplinaRouter')

@@ -6,15 +6,15 @@ const app = express()
 const dotenv = require('dotenv').config()
 //Lista de times mockado
 var times = require('./model/times')
-//Lista de rotas mockada
-const listaRotas = require('./model/listaRotas')
 
 //Middleware para utilizar body da requisição
 app.use(express.json())
+//Middlewre para servir arquivos html
+app.use(express.static('public'))
 
 //Rota para listar as rotas disponíveis
 app.get('/', (req, res) => {
-    res.json(listaRotas)
+    res.sendFile(__dirname + '/public/index.html')
 })
 
 //Rota get para obter todos os times
