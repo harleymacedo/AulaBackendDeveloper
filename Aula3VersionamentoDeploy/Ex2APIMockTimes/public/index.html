@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Disciplinas</title>
+    <title>API de Times</title>
     <style>
         .divPrincipal {
             display: flex;
@@ -33,25 +33,25 @@
 </head>
 <body>
     <div class="divPrincipal">
-        <h3>Mini API de Disciplinas para uso nas aulas de PSW1 e PSW2</h3>
+        <h3>Mini API de Times para uso nas aulas de PSW1 e PSW2</h3>
         <table>
             <tr>
                 <th>Método</th> <th>Rota</th> <th>Descrição</th>
             </tr>
             <tr>
-                <td>GET</td> <td>/disciplina/todas</td> <td>Rota get para obter todas as disciplinas</td>
+                <td>GET</td> <td>/time/todos</td> <td>Rota get para obter todos os times</td>
             </tr>
             <tr>
-                <td>GET</td> <td>/disciplina/codigo/:codigo</td> <td>Rota get para obter uma disciplina pelo código</td>
+                <td>GET</td> <td>/time/nome/:nome</td> <td>Rota get para obter um time pelo nome</td>
             </tr>
             <tr>
-                <td>POST</td> <td>/disciplina</td> <td>Rota post para inserir uma nova disciplina</td>
+                <td>POST</td> <td>/time/inserir</td> <td>Rota post para inserir um novo time</td>
             </tr>
             <tr>
-                <td>PUT</td> <td>/disciplina</td> <td>Rota put para atualizar uma disciplina</td>
+                <td>PUT</td> <td>/time/atualizar</td> <td>Rota put para atualizar um time, pelo nome</td>
             </tr>
             <tr>
-                <td>DELETE</td> <td>/disciplina/:codigo</td> <td>Rota delete para excluir uma disciplina pelo código</td>
+                <td>DELETE</td> <td>/time/excluir</td> <td>Rota delete para excluir um time, pelo nome</td>
             </tr>
         </table>
     </div>
