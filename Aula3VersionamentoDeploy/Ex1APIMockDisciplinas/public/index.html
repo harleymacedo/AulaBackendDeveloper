@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Times</title>
+    <style>
+        .divPrincipal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h3 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 50px;
+        }
+        table, th, td {
+            border: solid 1px blue;
+            border-collapse: collapse;
+        }
+        th {
+            font-size: 14pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        td {
+            font-size: 12pt;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="divPrincipal">
+        <h3>Mini API de Disciplinas para uso nas aulas de PSW1 e PSW2</h3>
+        <table>
+            <tr>
+                <th>Método</th> <th>Rota</th> <th>Descrição</th>
+            </tr>
+            <tr>
+                <td>GET</td> <td>/time/todos</td> <td>Rota get para obter todos os times</td>
+            </tr>
+            <tr>
+                <td>GET</td> <td>/time/nome/:nome</td> <td>Rota get para obter um time pelo nome</td>
+            </tr>
+            <tr>
+                <td>POST</td> <td>/time/inserir</td> <td>Rota post para inserir um novo time</td>
+            </tr>
+            <tr>
+                <td>PUT</td> <td>/time/atualizar</td> <td>Rota put para atualizar um time, pelo nome</td>
+            </tr>
+            <tr>
+                <td>DELETE</td> <td>/time/excluir</td> <td>Rota delete para excluir um time, pelo nome</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

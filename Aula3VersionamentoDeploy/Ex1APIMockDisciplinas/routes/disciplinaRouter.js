@@ -2,6 +2,11 @@
 const disciplinaRouter = require('express').Router()
 var disciplinas = require('../model/disciplinaModel')
 
+//Rota get para listar rotas da API
+disciplinaRouter.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html')
+})
+
 //Rota get para obter todas as disciplinas
 disciplinaRouter.get('/disciplina/todas', (req, res) => {
     try {
