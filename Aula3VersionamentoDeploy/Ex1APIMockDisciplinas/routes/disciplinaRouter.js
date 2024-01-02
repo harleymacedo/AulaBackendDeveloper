@@ -1,10 +1,11 @@
 //Imports gerais
 const disciplinaRouter = require('express').Router()
 var disciplinas = require('../model/disciplinaModel')
+const path = require('path')
 
 //Rota get para listar rotas da API
 disciplinaRouter.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(path.join(__dirname, '../public', 'index.html'))
 })
 
 //Rota get para obter todas as disciplinas
