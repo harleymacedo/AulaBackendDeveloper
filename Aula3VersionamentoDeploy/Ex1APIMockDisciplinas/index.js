@@ -8,7 +8,12 @@ const dotenv = require('dotenv').config()
 const disciplinaRouter = require('./routes/disciplinaRouter')
 
 //Habilitando o cors para autorizar acesso desta API por frontend de outro servidor
-app.use(cors)
+app.use(cors(
+    {
+        "origin": "*",
+        "methods": "GET,PUT,POST,DELETE",
+    }
+))
 //Middleware para reconhecer response json
 app.use(express.json())
 //Middleware para rotear as requisições
