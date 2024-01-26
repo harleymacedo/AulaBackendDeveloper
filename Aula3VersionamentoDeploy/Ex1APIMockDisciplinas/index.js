@@ -14,7 +14,7 @@ app.use(cors(
         "methods": "GET,PUT,POST,DELETE",
     }
 ))
-//Middleware para reconhecer response json
+//Middleware para reconhecer request json
 app.use(express.json())
 //Middleware para rotear as requisições
 app.use(disciplinaRouter)
