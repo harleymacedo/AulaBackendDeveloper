@@ -10,13 +10,13 @@ let usuario = {
     cidade: 'Crato'
 }
 for (const atributo in usuario) {
-    console.log(atributo)
+    console.log(atributo, usuario[atributo])
 }
 
 //Estrutura forEach
 let opcoes = ['a', 'b', 'c']
-opcoes.forEach(elemento => {
-    console.log(elemento)
+opcoes.forEach( (elemento, indice) => {
+    console.log(elemento, indice)
 })
 
 //Estrutura while
