@@ -6,6 +6,7 @@ const cors = require('cors')
 //Biblioteca para configurar e reconhecer as variáveis no arquivo .env
 const dotenv = require('dotenv').config()
 const disciplinaRouter = require('./routes/disciplinaRouter')
+const usuarioRouter = require('./routes/usuarioRouter')
 
 //Habilitando o cors para autorizar acesso desta API por frontend de outro servidor
 app.use(cors(
@@ -18,6 +19,7 @@ app.use(cors(
 app.use(express.json())
 //Middleware para rotear as requisições
 app.use(disciplinaRouter)
+app.use(usuarioRouter)
 //Middleware para acessar arquivos estáticos
 app.use(express.static('public'))
 
