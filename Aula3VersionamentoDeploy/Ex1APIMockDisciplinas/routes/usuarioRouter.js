@@ -3,7 +3,7 @@ const usuarioRouter = require('express').Router()
 const usuarios = require('../model/usuarioModel')
 
 //Rota get para verificar o login de acordo com usuario e senha
-usuarioRouter.get('/verificarLogin', (req, res) => {
+usuarioRouter.post('/verificarLogin', (req, res) => {
     try {
         let logado = false
         usuarios.forEach( (elemento) => {
