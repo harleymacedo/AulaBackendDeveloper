@@ -11,9 +11,9 @@ usuarioRouter.post('/verificarLogin', (req, res) => {
                 logado = true
             }
         })
-        res.json({'logado': logado, 'erro': false, 'mensagem': 'Usuário ou senha incorretos'})
+        res.json({'logado': logado, 'erro': false})
     } catch (error) {
-        res.json({'logado': logado, 'erro': true, 'mensagem': 'Não foi possível realizar a verificação'})
+        res.json({'logado': logado, 'erro': true})
     }
 })
 
