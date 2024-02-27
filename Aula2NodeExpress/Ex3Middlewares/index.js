@@ -9,12 +9,12 @@ const registrarAtividade = require('./middlewares/logAtividade')
 //Anexando o middleware para todas as rotas
 app.use(registrarAtividade)
 
-//Rota raiz, que será interceptada pelo middleware confereHorario
+//Rota raiz, que será interceptada pelo middleware registrarAtividade
 app.get('/', (req, res) => {
     res.json({mensagem: 'App em execucao'})
 })
 
-//Middleware específico, que vai interceptar apenas esata rota
+//Middleware específico, que vai interceptar apenas esta rota
 app.get('/rota2', confereHorario, (req, res) => {
     res.json({mensagem: 'App em execucao2'})
 })
