@@ -4,7 +4,18 @@ const registrarAtividade = (req, res, next) => {
     let hora = date.getHours()
     let minutos = date.getMinutes()
     let segundos = date.getMinutes()
-    console.log(`Atividade: ${req.ip}, ${req.url}, ${hora}:${minutos}:${segundos}`)
+    let texto = `Atividade: ${req.ip}, ${req.url}, ${hora}:${minutos}:${segundos}`
+    console.log(texto)
+    //Gerar arquivo
+    const fs = require('fs');
+    fs.writeFile('logs.txt', texto, (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Arquivo salvo com sucesso!');
+        }
+    });
+    //Fim Gerar arquivo
     next()
 }
 
