@@ -102,5 +102,14 @@ app.get('/usuario/recuperarSenha', (req, res) => {
     }
 })
 
+//Login social
+app.post('/loginSocial', (req, res) => {
+    const CLIENT_ID = 'YOUR_CLIENT_ID'
+    const CLIENT_SECRET = 'YOUR_CLIENT_SECRET'
+    const REDIRECT_URI = '<http://localhost:3000/auth/google/callback>'
+    const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=profile email`
+    res.redirect(url)
+})
+
 //Ouvinte da requisição
 app.listen(3000)
