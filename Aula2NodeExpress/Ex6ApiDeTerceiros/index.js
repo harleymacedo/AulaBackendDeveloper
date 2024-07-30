@@ -11,7 +11,7 @@ app.get('/perguntaChat', async (req, res) => {
         method: 'GET',
         url: 'https://ai-chatbot.p.rapidapi.com/chat/free',
         params: {
-            message: 'What is the capital of the United States?',
+            message: 'What is a island?',
             uid: 'user1'
         },
         headers: {
@@ -35,7 +35,7 @@ app.get('/tradutorInglesPortugues', (req, res) => {
 
 app.get('/imagemOcr', async (req, res) => {
     const encodedParams = new URLSearchParams();
-    encodedParams.set('imageUrl', 'https://enfoquevisual.com.br/cdn/shop/products/AVS-012.jpg');
+    encodedParams.set('imageUrl', 'https://images.tcdn.com.br/img/img_prod/1040648/placa_aviso_acesso_restrito_453_1_b4628521a623f1f8c4c95542b767689c.jpg');
     const options = {
         method: 'POST',
         url: 'https://image-to-text-ocr1.p.rapidapi.com/ocr',
