@@ -1,4 +1,4 @@
-<h1>Documentação da API</h>
+<h1>Documentação da API</h1>
 
 <h3>Login na aplicação</h3>
 <p>
