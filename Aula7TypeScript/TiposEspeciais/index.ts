@@ -2,7 +2,7 @@
 //Tipo any
 var telefone: any = true;
 telefone = "outro valor";
-console.log(Math.round(telefone));
+console.log(typeof telefone);
 
 
 //Tipo unknown
