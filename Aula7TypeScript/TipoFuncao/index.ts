@@ -21,6 +21,7 @@ function pow(value: number, expoent: number = 10) {
 
 let x: unknown = 'Hello';
 console.log((x as string).length);
+console.log(typeof x)
 
 class Person {
     private name: string;

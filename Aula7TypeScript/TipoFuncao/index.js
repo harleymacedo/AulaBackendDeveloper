@@ -16,3 +16,12 @@ function pow(value, expoent) {
 }
 var x = 'Hello';
 console.log(x.length);
+console.log(typeof x);
+var Person = /** @class */ (function () {
+    function Person() {
+    }
+    Person.prototype.getName = function () {
+        return this.name;
+    };
+    return Person;
+}());

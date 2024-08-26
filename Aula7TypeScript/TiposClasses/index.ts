@@ -1,9 +1,13 @@
 class Person {
-    name: string;
+    private name: string = 'Ana';
+
+    public getName(): string {
+        return this.name;
+    }
 }
 
-const person = new Person();
-person.name = 'Jane';
+let p1 = new Person();
+const nome = p1.getName();
 
 //Modificador de acesso e construtor
 class Car {

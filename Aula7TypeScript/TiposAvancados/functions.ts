@@ -1,4 +1,4 @@
-function getTime (): number {
+function getTime(): number {
     return new Date().getTime();
 }
 
