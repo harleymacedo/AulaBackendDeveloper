@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(route);
 
 route.get('/', (req: Request, res: Response) => {
-    res.json({message: 'Hello World with Typescript'});
+    res.json({message: 'Resposta com Typescript'});
 });
 
-app.listen(3000, () => 'Server running on port 3000');
+app.listen(3000, () => 'Servidor rodando na porta 3000');

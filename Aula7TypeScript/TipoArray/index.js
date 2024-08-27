@@ -1,7 +1,11 @@
 //Tipo array
 var names = [];
 names.push("Dylan");
-//names.push(3);
-var numbers = [1, 2, 3]; //inferred to type number[]
-numbers.push(4); // no error
-//numbers.push("2"); // Error:
+names.push(3);
+//Tipagem por inferência
+var numbers = [1, 2, 3]; //tipo definido como number[]
+numbers.push(4); //sem erro
+//numbers.push("2"); //com erro
+//Tupla definida
+var ourTuple;
+ourTuple = [5, false, 'Exemplo de tupla']; //Inicialização correta

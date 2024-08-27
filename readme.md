@@ -1,4 +1,4 @@
-<h1>Repositório para aulas de Desenvolvedor Backend</h1>
+<h1>Repositório das aulas de Desenvolvedor Backend</h1>
 
 <h3>Informações Gerais</h3>
 <ul>
