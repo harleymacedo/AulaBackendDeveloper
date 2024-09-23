@@ -1,9 +1,14 @@
 //Importações gerais
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 //Biblioteca para configurar e reconhecer as variáveis no arquivo .env
 const dotenv = require('dotenv').config()
+//Permissão de acesso
+app.use(cors({
+    origin: '*',
+}))
 //Lista de times mockado
 var times = require('./model/times')
 

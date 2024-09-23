@@ -29,6 +29,8 @@ app.get('/video', (req, res) => {
     }
     res.writeHead(206, headers);
 
+    console.log(start, end, chunkSize)
+
     const stream = fs.createReadStream(videoPath, {start, end});
     stream.pipe(res);
 });
