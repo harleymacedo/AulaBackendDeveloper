@@ -13,6 +13,7 @@ console.log(y)
 //const e escopo de bloco
 {
     const z = 5
+    z = 10
 }
 console.log(z)
 

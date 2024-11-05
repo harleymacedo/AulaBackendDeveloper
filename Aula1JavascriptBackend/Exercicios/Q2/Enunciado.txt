@@ -1,0 +1,4 @@
+Questão 2
+.Crie uma função que conte quantas vogais um determinado texto possui
+.A função recebe uma String como parâmetro
+.A função retorna a quantidade de vogais tem a String

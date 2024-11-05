@@ -1,0 +1,6 @@
+Questão 3
+.Crie uma função que imprime uma barra de progresso baseado no número de segundos
+.Em um texto de sessenta posições, será impresso N ‘*’, sendo N o número de segundos
+.Os demais caracteres, até completar 60, devem ser preenchidos com underline '_'
+.Adicione um pipeline '|', no início e no fim do texto
+.A função não retorna valores, apenas imprime a barra 

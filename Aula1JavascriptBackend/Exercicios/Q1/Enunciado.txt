@@ -1,0 +1,4 @@
+Questão 1
+.Crie uma função que realiza um sorteio com 5 números entre 1 e 80
+.Os números sorteados não podem ser repetidos
+.Imprima os números sorteados
