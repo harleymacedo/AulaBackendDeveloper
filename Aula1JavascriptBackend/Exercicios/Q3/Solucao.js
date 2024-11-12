@@ -1,8 +1,9 @@
 //Q3, barra de progresso
 function barraProgresso() {
     let segundos = (new Date()).getSeconds()
+    segundos--
     let barra = '|'
-    for (i = 0; i <= segundos; i++) {
+    for (i = 0; i < segundos; i++) {
         barra += '*'
     }
     let diferenca = 59 - segundos
@@ -10,7 +11,7 @@ function barraProgresso() {
         barra += '_'
     }
     barra += '|'
-    console.log(barra)
+    console.log(barra, segundos)
 }
 
 barraProgresso()

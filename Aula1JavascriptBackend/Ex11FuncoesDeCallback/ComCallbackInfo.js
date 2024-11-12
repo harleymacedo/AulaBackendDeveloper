@@ -14,6 +14,8 @@ const enviaEmail = (info) => {
 }
 
 //Mantém o sincronismo
-geraPDF( (info) => {
-    enviaEmail(info)
-} )
+// geraPDF( (info) => {
+//     enviaEmail(info)
+// } )
+
+geraPDF(enviaEmail)

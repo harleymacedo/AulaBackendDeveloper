@@ -1,0 +1,3 @@
+Questão 5
+. Crie uma função chamada ‘lerDados’ que realiza a leitura em um arquivo txt
+. Essa função usa o comando 
