@@ -1,10 +1,12 @@
 Questão 4
 . Crie uma classe chamada ‘Utilitario’ que possui
 . Uma função chamada ‘geraNomeArquivo’
-. Essa função gera uma palavra aleatória com 6 letras, sendo 3 pares de consoante e vogal (Ex: bacato)
+. Essa função gera uma palavra aleatória com 6 letras, sendo 3 pares de consoante 
+    e vogal (Ex: bacato)
 . A palavra não precisa existir no dicionário de português
-. Em seguida a palavra é concatenada com um ‘-’ e com um timestamp (tempo em milisegundos)
+. Em seguida a palavra é concatenada com um ‘-’ e com um timestamp 
+    (tempo em milisegundos)
 . Depois a palavra é concatenada com ‘.js’
-. O nome completo é impresso pela função
-. Um exemplo de nome de arquivo seria ‘tufaro-1731422004193.js’
+. O nome completo é impresso pela função 
+. Um exemplo de nome de arquivo seria ‘tufaro-1731422004193.js’ 
 . Instancie um objeto ‘Utilitario’ e chame a função ‘geraNomeArquivo’
