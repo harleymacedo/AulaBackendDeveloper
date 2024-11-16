@@ -13,7 +13,7 @@ app.get('/lancamentos', (req, res) => {
     res.json({recomendacao: ['7 anos no Tibet', 'Tempo de glória']})
 })
 app.get('/cadastro', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(__dirname + '/public/index2.html')
 })
 
 //Ouvinte das requisições

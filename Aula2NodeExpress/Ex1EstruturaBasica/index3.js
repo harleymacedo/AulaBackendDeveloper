@@ -18,6 +18,12 @@ app.get('/times', function (req, res) {
   res.json(times)
 })
 
+app.get('/infosReqRes', function (req, res) {
+  let infos = []
+  for (const atrib in req) { infos.push(atrib) }
+  res.json({'infos': infos})
+})
+
 app.get('/times/:cidade', function (req, res) {
   let cidade = req.params.cidade
   let timesCidade = times.filter(function (time){
