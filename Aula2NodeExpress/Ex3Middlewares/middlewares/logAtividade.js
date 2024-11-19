@@ -1,10 +1,8 @@
 //Função de middlwware que imprime dados da requisição quando alguma rota é acessada
 const registrarAtividade = (req, res, next) => {
     let date = new Date()
-    let hora = date.getHours()
-    let minutos = date.getMinutes()
-    let segundos = date.getMinutes()
-    let texto = `Atividade: ${req.ip}, ${req.url}, ${hora}:${minutos}:${segundos}`
+    let hora = date.toLocaleString('pt-br')
+    let texto = `Atividade: ${req.ip}, ${req.url}, ${hora}`
     console.log(texto)
     //Gerar arquivo
     const fs = require('fs');
