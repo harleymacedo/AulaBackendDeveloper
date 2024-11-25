@@ -1,0 +1,5 @@
+Crie uma API com Node e Express que tenha/faça:
+. Um conjunto de dados mockados de usuário, um array de 10 objetos com nome e cidade
+. Uma rota GET para '/usuario/todos' que retorna em formato JSON, todos os usuários
+. Uma rota GET para '/usuario/cidade/:cidade' que retorna apenas os usuários da cidade passada no parâmetro
+. Uma rota GET para '/usuario/sorteado' que retorna um usuário aleatório da lista

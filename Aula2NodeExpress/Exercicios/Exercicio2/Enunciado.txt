@@ -1,0 +1,5 @@
+Crie uma API com Node e Express que tenha/faça: 
+. Uma rota GET para '/laboratorio/todos' que retorna uma lista de laboratórios
+. Os laboratórios estão mockados em um arquivo separado, eles contêm nome, capacidade e descrição
+. Uma rota POST para '/laboratorio' que cadastra um novo laboratorio no array
+. Essa rota POST deve ter um middleware chamado 'middlewareLog' que registra um timestamp em arquivo txt cada vez que a rota é acessada
