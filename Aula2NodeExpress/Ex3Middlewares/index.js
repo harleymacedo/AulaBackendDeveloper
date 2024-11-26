@@ -9,6 +9,10 @@ const limiteAcesso = require('./middlewares/limiteAcesso')
 
 //Anexando o middleware para todas as rotas
 app.use(registrarAtividade)
+app.use(confereHorario)
+
+app.use(express.json())
+
 
 //Rota raiz, que será interceptada pelo middleware registrarAtividade
 app.get('/', limiteAcesso, (req, res) => {
@@ -16,8 +20,12 @@ app.get('/', limiteAcesso, (req, res) => {
 })
 
 //Middleware específico, que vai interceptar apenas esta rota
-app.get('/rota2', confereHorario, (req, res) => {
+app.get('/rota2', (req, res) => {
     res.json({mensagem: 'App em execucao2'})
+})
+
+app.get('/rota3', (req, res) => {
+    res.json({mensagem: 'App em execucao3'})
 })
 
 //Ouvinte de requisições

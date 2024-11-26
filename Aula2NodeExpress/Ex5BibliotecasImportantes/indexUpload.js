@@ -14,10 +14,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/')
     },
     filename: function (req, file, cb) {
-        // Extração de nome e extensão do arquivo original
-        const extensaoArquivo = file.originalname.split('.')[1]
-        const novoNomeArquivo = file.originalname.split('.')[0]
-        cb(null, `${novoNomeArquivo}.${extensaoArquivo}`)
+        cb(null, file.originalname)
     }
 })
 
