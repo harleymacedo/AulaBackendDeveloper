@@ -2,7 +2,7 @@
 const axios = require('axios')
 
 //Verificar se foi retornado algum dado válido
-//Verficicar se foi o tamanho do dado é maior que 0
+//Verficicar se o tamanho do dado é maior que 0
 test('GET /professor/todos', async () => {
     const result = await axios.get('http://localhost:3000/professor/todos')
     expect(result.data.professores).toBeTruthy()

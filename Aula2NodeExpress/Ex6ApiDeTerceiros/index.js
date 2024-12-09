@@ -11,7 +11,7 @@ app.get('/perguntaChat', async (req, res) => {
         method: 'GET',
         url: 'https://ai-chatbot.p.rapidapi.com/chat/free',
         params: {
-            message: 'What is a island?',
+            message: 'How many days have a year?',
             uid: 'user1'
         },
         headers: {
@@ -35,7 +35,10 @@ app.get('/tradutorInglesPortugues', (req, res) => {
 
 app.get('/imagemOcr', async (req, res) => {
     const encodedParams = new URLSearchParams();
-    encodedParams.set('imageUrl', 'https://images.tcdn.com.br/img/img_prod/1040648/placa_aviso_acesso_restrito_453_1_b4628521a623f1f8c4c95542b767689c.jpg');
+    const endereco2 = 'https://www.graficacanoas.com/uploads/produtos/placa-de-aviso-deixar-o-salao-limpo-retangular-25cm-x-18cm-35cm-x-25cm-50cm-x-35cm-pvc-2mm-impressao-digital-4-furos-ou-fita-dupla-face-4x0-colorido-frente-verniz-de-protecao1568048591.jpg'
+    const endereco1 = 'https://images.tcdn.com.br/img/img_prod/1040648/placa_aviso_acesso_restrito_453_1_b4628521a623f1f8c4c95542b767689c.jpg'
+    const endereco3 = 'https://i.pinimg.com/originals/d0/29/aa/d029aa09109bef67626f5aea42ba0c75.png'
+    encodedParams.set('imageUrl', endereco3);
     const options = {
         method: 'POST',
         url: 'https://image-to-text-ocr1.p.rapidapi.com/ocr',
