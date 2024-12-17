@@ -6,9 +6,12 @@ const cors = require('cors')
 //Biblioteca para configurar e reconhecer as variáveis no arquivo .env
 const dotenv = require('dotenv').config()
 //Permissão de acesso
-app.use(cors({
-    origin: '*',
-}))
+app.use(cors(
+    {
+        "origin": "*",
+        "methods": "GET,PUT,POST,DELETE",
+    }
+))
 //Lista de times mockado
 var times = require('./model/times')
 
