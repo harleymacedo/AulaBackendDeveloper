@@ -10,6 +10,6 @@ const route = (0, express_2.Router)();
 app.use(express_1.default.json());
 app.use(route);
 route.get('/', (req, res) => {
-    res.json({ message: 'Hello World with Typescript' });
+    res.json({ message: 'Resposta com Typescript' });
 });
-app.listen(3000, () => 'Server running on port 3000');
+app.listen(3000, () => 'Servidor rodando na porta 3000');

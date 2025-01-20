@@ -3,6 +3,9 @@ var a;
 a = 'Ana';
 var b = 10;
 b = 20;
+var telefone;
+var email;
+console.log(typeof telefone, typeof email);
 var car = {
     type: 'Toyota',
     model: 'Corolla',
@@ -20,4 +23,4 @@ var CardinalDirections;
     CardinalDirections[CardinalDirections["South"] = 3] = "South";
     CardinalDirections[CardinalDirections["West"] = 4] = "West";
 })(CardinalDirections || (CardinalDirections = {}));
-console.log(CardinalDirections.East);
+console.log(CardinalDirections.West);

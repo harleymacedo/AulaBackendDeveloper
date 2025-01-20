@@ -11,3 +11,5 @@ numbers.push(4); //sem erro
 //Tupla definida
 let ourTuple: [number, boolean, string];
 ourTuple = [5, false, 'Exemplo de tupla']; //Inicialização correta
+
+console.log(ourTuple);

@@ -5,6 +5,11 @@ a = 'Ana';
 var b: number = 10;
 b = 20;
 
+let telefone: any;
+
+let email: unknown;
+
+console.log(typeof telefone, typeof email);
 
 const car: {type: string, model: string, year: number} = {
     type: 'Toyota',
