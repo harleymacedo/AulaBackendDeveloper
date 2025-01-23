@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc",
-    "start": "node ./dist/app.js",
-    "test": "jest"
+    "dev": "ts-node ./src/app.ts",
+    "start": "node ./dist/app.js"
   },
   "keywords": [],
   "author": "",
