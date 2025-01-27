@@ -1,6 +1,7 @@
 const express = require('express')
 const server = express()
 const cors = require('cors')
+const dotenv = require('dotenv').config()
 
 server.use(cors({
     origin: '*'
@@ -26,4 +27,8 @@ server.get('/painelClima', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
 
-server.listen(3000)
+const PORT = 3001
+
+server.listen(3000 || process.env.PORT, function () {
+    console.log('Servidor rodando na porta: ' + PORT)
+})

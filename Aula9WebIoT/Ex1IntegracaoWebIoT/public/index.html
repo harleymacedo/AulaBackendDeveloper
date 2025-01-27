@@ -15,9 +15,13 @@
             const url = "/listar"
             const resposta = await fetch(url)
             const respFormatada = await resposta.json()
-            respFormatada.forEach(function (clima) {
-                document.getElementById("resp").innerHTML += '<button>' + clima + '</button>'
-            })
+            if (respFormatada.length) {
+                respFormatada.forEach(function (clima) {
+                    document.getElementById("resp").innerHTML += '<button>' + clima + '</button>'
+                })
+            } else {
+                document.getElementById("resp").innerHTML += '<p>Temperaturas não encontradas</p>'
+            }
         }
     </script>
 </body>
