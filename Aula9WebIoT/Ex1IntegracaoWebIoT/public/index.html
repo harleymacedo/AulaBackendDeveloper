@@ -12,7 +12,7 @@
     <div id="resp"></div>
     <script>
         async function listar() {
-            const url = "/listar"
+            const url = "https://aula-backend-developer-x93z.vercel.app/listar"
             const resposta = await fetch(url)
             const respFormatada = await resposta.json()
             if (respFormatada.length) {
