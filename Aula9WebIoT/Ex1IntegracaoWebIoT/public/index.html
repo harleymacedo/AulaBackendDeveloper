@@ -15,8 +15,9 @@
             const url = "https://aula-backend-developer-x93z.vercel.app/listar"
             const resposta = await fetch(url)
             const respFormatada = await resposta.json()
-            if (respFormatada.length) {
-                respFormatada.forEach(function (clima) {
+            console.log(respFormatada)
+            if (respFormatada.dados.length) {            
+                respFormatada.dados.forEach(function (clima) {
                     document.getElementById("resp").innerHTML += '<button>' + clima + '</button>'
                 })
             } else {
