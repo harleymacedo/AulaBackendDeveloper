@@ -1,13 +1,15 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv').config()
+const cors = require('cors')
+const alunoRouter = require('./routers/alunoRouter')
+const grupoRouter = require('./routers/grupoRouter')
+
 
 app.use(express.json())
+app.use(alunoRouter)
+app.use(grupoRouter)
 
-app.get('/grupos', function (req, res) {
-    res.json({gruposEncontrados: []})
-})
-
-app.listen(3000, function (req, res) {
-    console.log(`App rodando na ${process.env.LOCAL_PORT}`)
+app.listen(process.env.PORT || 3001, function (req, res) {
+    console.log(`App rodando na ${process.env.PORT}`)
 })
