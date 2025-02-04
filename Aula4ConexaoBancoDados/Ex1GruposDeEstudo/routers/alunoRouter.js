@@ -1,8 +1,13 @@
-const express = require('express')
-const alunoRouter = express.Router();
+const alunoRouter = express.Router()
+const mongoose = require('mongoose')
+const aluno = require('../models/aluno')
 
 alunoRouter.get('/aluno', function (req, res) {
-    res.json({alunos: []})
+    try {
+        mongoose.connect(process.env.DB_CONNECTION_STRING)
+    } catch (error) {
+        res.json({'alunos': [], 'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }
 })
 
 alunoRouter.get('/aluno/:id', function (req, res) {
