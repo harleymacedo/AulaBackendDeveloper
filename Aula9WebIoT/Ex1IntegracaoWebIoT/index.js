@@ -34,7 +34,7 @@ server.get('/ligarLuz', (req, res) => {
 })
 
 server.get('/obterStatusLuz', (req, res) => {
-    res.send('Ligado')
+    res.send(statusLuz)
 })
 
 const PORT = 3001
