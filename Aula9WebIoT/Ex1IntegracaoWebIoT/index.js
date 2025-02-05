@@ -11,7 +11,7 @@ server.use(cors({
 server.use(express.static('public'))
 
 var dadosClima = []
-var statusLuz = false
+var statusLuz = 'Desligado'
 
 server.use(express.json())
 
@@ -29,12 +29,12 @@ server.get('/painelClima', (req, res) => {
 })
 
 server.get('/ligarLuz', (req, res) => {
-    statusLuz = true    
+    statusLuz = 'Ligado'    
     res.json({'mensagem': 'Led Ligado com sucesso'})
 })
 
 server.get('/obterStatusLuz', (req, res) => {
-    res.send({statusLuz: statusLuz})
+    res.send('Ligado')
 })
 
 const PORT = 3001
