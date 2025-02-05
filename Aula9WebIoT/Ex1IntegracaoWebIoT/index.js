@@ -11,20 +11,30 @@ server.use(cors({
 server.use(express.static('public'))
 
 var dadosClima = []
+var statusLuz = false
 
 server.use(express.json())
 
 server.get('/listar', (req, res) => {
-    res.json({dados: dadosClima})
+    res.json({'dados': dadosClima})
 })
 
 server.get('/temperatura', (req, res) => {
     dadosClima.push(req.query.temp)
-    res.json({mensagem: 'Temperatura gravada'})
+    res.json({'mensagem': 'Temperatura gravada'})
 })
 
 server.get('/painelClima', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
+})
+
+server.get('/ligarLuz', (req, res) => {
+    statusLuz = true    
+    res.json({'mensagem': 'Led Ligado com sucesso'})
+})
+
+server.get('/obterStatusLuz', (req, res) => {
+    res.json({'statusLuz': statusLuz})
 })
 
 const PORT = 3001
