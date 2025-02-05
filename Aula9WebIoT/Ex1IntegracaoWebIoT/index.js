@@ -34,7 +34,7 @@ server.get('/ligarLuz', (req, res) => {
 })
 
 server.get('/obterStatusLuz', (req, res) => {
-    res.json({'statusLuz': statusLuz})
+    res.send({statusLuz: statusLuz})
 })
 
 const PORT = 3001
