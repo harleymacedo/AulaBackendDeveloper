@@ -24,15 +24,33 @@ alunoRouter.get('/aluno/:id', function (req, res) {
 })
 
 alunoRouter.post('/aluno', function (req, res) {
-    res.json({mensagem: 'Aluno gravado com sucesso!'})
+    try {
+        dados = req.body
+        aluno.create(dados)
+        res.json({mensagem: 'Aluno gravado com sucesso!'})
+    } catch (error) {
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }
 })
 
 alunoRouter.put('/aluno', function(req, res) {
-    res.json({mensagem: 'Aluno atualizado com sucesso'})
+    try {
+        const alunoPassado = req.body
+        aluno.findOneAndUpdate({'id': alunoPassado.id}, alunoPassado)        
+        res.json({mensagem: 'Aluno atualizado com sucesso!'})
+    } catch (error) {
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }
 })
 
 alunoRouter.delete('/aluno', function(req, res) {
-    res.json({mensagem: 'Aluno excluido com sucesso'})
+    try {
+        const dados = req.body
+        aluno.deleteOne(dados)
+        res.json({mensagem: 'Aluno excluido com sucesso'})
+    } catch (error) {
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }
 })
 
 module.exports = alunoRouter
