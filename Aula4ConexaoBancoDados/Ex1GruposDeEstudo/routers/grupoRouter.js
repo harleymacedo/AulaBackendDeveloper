@@ -23,12 +23,25 @@ grupoRouter.get('/grupo/:id', async function (req, res) {
     }
 })
 
-grupoRouter.post('/grupo', function (req, res) {
-    res.json({mensagem: 'Grupo gravado com sucesso!'})
+grupoRouter.post('/grupo', async function (req, res) {
+    try {
+        await mongoose.connect(process.env.DB_CONNECTION_STRING)
+        const dados = req.body
+        await grupo.create(dados)
+        res.json({'erro': false, 'mensagem': 'Consulta realizada com sucesso'})
+    } catch (error) {
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }    
 })
 
-grupoRouter.put('/grupo', function(req, res) {
-    res.json({mensagem: 'Grupo atualizado com sucesso'})
+grupoRouter.put('/grupo', async function(req, res) {
+    try {
+        const dados = req.body
+        const grupoProcurado = grupo.findOneAndUpdate({'id': dados.id}, dados)
+        res.json({'erro': false, 'mensagem': 'Consulta realizada com sucesso'})
+    } catch (error) {
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }
 })
 
 grupoRouter.delete('/grupo', function(req, res) {

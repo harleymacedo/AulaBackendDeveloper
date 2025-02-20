@@ -25,7 +25,7 @@ alunoRouter.get('/aluno/:id', async function (req, res) {
 
 alunoRouter.post('/aluno', async function (req, res) {
     try {
-        dados = req.body
+       const dados = req.body
         await aluno.create(dados)
         res.json({mensagem: 'Aluno gravado com sucesso!'})
     } catch (error) {
