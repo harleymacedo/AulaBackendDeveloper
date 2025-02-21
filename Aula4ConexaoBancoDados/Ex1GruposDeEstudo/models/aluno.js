@@ -6,6 +6,7 @@ const aluno = mongoose.Schema({
     email: String,
     telefone: String,
     cidade: String,
+    foto: String
 })
 
 module.exports = mongoose.model('Aluno', aluno)
