@@ -1,4 +1,4 @@
-const alunoRouter = express.Router()
+const alunoRouter = require('express').Router()
 const mongoose = require('mongoose')
 const aluno = require('../models/aluno')
 

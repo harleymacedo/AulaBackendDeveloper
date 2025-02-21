@@ -1,4 +1,4 @@
-const grupoRouter = express.Router()
+const grupoRouter = require('express').Router()
 const mongoose = require('mongoose')
 const grupo = require('../models/grupo')
 
