@@ -36,6 +36,7 @@ grupoRouter.post('/grupo', async function (req, res) {
 
 grupoRouter.put('/grupo', async function(req, res) {
     try {
+        await mongoose.connect(DB_CONNECTION_STRING)
         const dados = req.body
         const grupoProcurado = grupo.findOneAndUpdate({'id': dados.id}, dados)
         res.json({'erro': false, 'mensagem': 'Consulta realizada com sucesso'})
@@ -44,8 +45,15 @@ grupoRouter.put('/grupo', async function(req, res) {
     }
 })
 
-grupoRouter.delete('/grupo', function(req, res) {
-    res.json({mensagem: 'Grupo excluido com sucesso'})
+grupoRouter.delete('/grupo', async function(req, res) {
+    try {
+        await mongoose.connect(DB_CONNECTION_STRING)
+        const dados = req.body
+        await grupo.deleteOne({'id': dados.id})
+        res.json({'erro': false, 'mensagem': 'Consulta realizada com sucesso'})
+    } catch (error) {
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+    }
 })
 
 module.exports = grupoRouter
