@@ -4,7 +4,7 @@ const aluno = require('../models/aluno')
 
 alunoRouter.get('/aluno', async function (req, res) {
     try {
-        await mongoose.connect(process.env.DB_CONNECTION_STRING)
+        await mongoose.connect(process.env.CONNECTION_STRING)
         const alunosBuscados = await aluno.find()
         res.json({'alunos': alunosBuscados})
     } catch (error) {
@@ -14,7 +14,7 @@ alunoRouter.get('/aluno', async function (req, res) {
 
 alunoRouter.get('/aluno/:id', async function (req, res) {
     try {
-        await mongoose.connect(process.env.DB_CONNECTION_STRING)
+        await mongoose.connect(process.env.CONNECTION_STRING)
         const id = req.params.id
         const alunoBuscado = await aluno.findOne({'id': id})
         res.json({'aluno': alunoBuscado})    
@@ -25,6 +25,7 @@ alunoRouter.get('/aluno/:id', async function (req, res) {
 
 alunoRouter.post('/aluno', async function (req, res) {
     try {
+        await mongoose.connect(process.env.CONNECTION_STRING)
        const dados = req.body
         await aluno.create(dados)
         res.json({mensagem: 'Aluno gravado com sucesso!'})
@@ -35,6 +36,7 @@ alunoRouter.post('/aluno', async function (req, res) {
 
 alunoRouter.put('/aluno', async function(req, res) {
     try {
+        await mongoose.connect(process.env.CONNECTION_STRING)
         const alunoPassado = req.body
         await aluno.findOneAndUpdate({'id': alunoPassado.id}, alunoPassado)        
         res.json({mensagem: 'Aluno atualizado com sucesso!'})
@@ -45,6 +47,7 @@ alunoRouter.put('/aluno', async function(req, res) {
 
 alunoRouter.delete('/aluno', async function(req, res) {
     try {
+        await mongoose.connect(process.env.CONNECTION_STRING)
         const dados = req.body
         await aluno.deleteOne(dados)
         res.json({mensagem: 'Aluno excluido com sucesso'})
