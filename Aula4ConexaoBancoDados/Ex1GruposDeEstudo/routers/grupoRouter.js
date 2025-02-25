@@ -1,6 +1,7 @@
 const grupoRouter = require('express').Router()
 const mongoose = require('mongoose')
 const grupo = require('../models/grupo')
+const jwt = require('jsonwebtoken')
 
 grupoRouter.get('/grupo', async function (req, res) {
     try {

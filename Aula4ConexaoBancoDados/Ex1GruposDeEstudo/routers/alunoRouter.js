@@ -1,6 +1,7 @@
 const alunoRouter = require('express').Router()
 const mongoose = require('mongoose')
 const aluno = require('../models/aluno')
+const jwt = require('jsonwebtoken')
 
 alunoRouter.get('/aluno', async function (req, res) {
     try {
