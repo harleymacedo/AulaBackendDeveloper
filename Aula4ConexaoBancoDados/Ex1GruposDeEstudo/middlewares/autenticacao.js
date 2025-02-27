@@ -26,3 +26,5 @@ app.post('/logar', (req, res) => {
         res.json({logado: false, mensagem: 'Erro durante o login.'})    
     }
 })
+
+module.exports = verificarJWT

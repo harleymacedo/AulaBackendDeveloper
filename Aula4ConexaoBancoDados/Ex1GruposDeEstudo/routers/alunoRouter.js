@@ -1,7 +1,7 @@
 const alunoRouter = require('express').Router()
 const mongoose = require('mongoose')
 const aluno = require('../models/aluno')
-const jwt = require('jsonwebtoken')
+const verificarJWT = require('../middlewares/autenticacao')
 
 alunoRouter.get('/aluno', async function (req, res) {
     try {
@@ -24,7 +24,7 @@ alunoRouter.get('/aluno/:id', async function (req, res) {
     }
 })
 
-alunoRouter.post('/aluno', async function (req, res) {
+alunoRouter.post('/aluno', verificarJWT, async function (req, res) {
     try {
         await mongoose.connect(process.env.CONNECTION_STRING)
        const dados = req.body
@@ -35,7 +35,7 @@ alunoRouter.post('/aluno', async function (req, res) {
     }
 })
 
-alunoRouter.put('/aluno', async function(req, res) {
+alunoRouter.put('/aluno', verificarJWT, async function(req, res) {
     try {
         await mongoose.connect(process.env.CONNECTION_STRING)
         const alunoPassado = req.body
@@ -46,7 +46,7 @@ alunoRouter.put('/aluno', async function(req, res) {
     }
 })
 
-alunoRouter.delete('/aluno', async function(req, res) {
+alunoRouter.delete('/aluno', verificarJWT, async function(req, res) {
     try {
         await mongoose.connect(process.env.CONNECTION_STRING)
         const dados = req.body
