@@ -1,7 +1,7 @@
 const grupoRouter = require('express').Router()
 const mongoose = require('mongoose')
 const grupo = require('../models/grupo')
-const jwt = require('jsonwebtoken')
+const verificarJWT = require('../middlewares/autenticacao')
 
 grupoRouter.get('/grupo', async function (req, res) {
     try {
@@ -24,7 +24,7 @@ grupoRouter.get('/grupo/:id', async function (req, res) {
     }
 })
 
-grupoRouter.post('/grupo', async function (req, res) {
+grupoRouter.post('/grupo', verificarJWT, async function (req, res) {
     try {
         await mongoose.connect(process.env.DB_CONNECTION_STRING)
         const dados = req.body
@@ -35,7 +35,7 @@ grupoRouter.post('/grupo', async function (req, res) {
     }    
 })
 
-grupoRouter.put('/grupo', async function(req, res) {
+grupoRouter.put('/grupo', verificarJWT, async function(req, res) {
     try {
         await mongoose.connect(DB_CONNECTION_STRING)
         const dados = req.body
@@ -46,7 +46,7 @@ grupoRouter.put('/grupo', async function(req, res) {
     }
 })
 
-grupoRouter.delete('/grupo', async function(req, res) {
+grupoRouter.delete('/grupo', verificarJWT, async function(req, res) {
     try {
         await mongoose.connect(DB_CONNECTION_STRING)
         const dados = req.body
