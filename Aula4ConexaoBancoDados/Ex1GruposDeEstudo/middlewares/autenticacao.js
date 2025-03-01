@@ -1,3 +1,7 @@
+const autenticacaoRouter = require('express').Router()
+const mongoose = require('mongoose')
+const administrador = require('../models/administrador')
+
 const jwt = require('jsonwebtoken')
 
 const verificarJWT = (req, res, next) => {
@@ -13,11 +17,13 @@ const verificarJWT = (req, res, next) => {
     next();
 }
 
-app.post('/logar', (req, res) => {
+autenticacaoRouter.post('/logar', async function (req, res) {
     try {
-        const {usuario, senha} = req.body
-        if (usuario === process.env.USUARIO && senha === process.env.SENHA) {
-            let novoToken = jwt.sign({usuario}, process.env.APP_KEY, {expiresIn: 9000})
+        const {email, senha} = req.body
+        await mongoose.connect(process.env.CONNECTION_STRING)
+        const resultado = await administrador.findOne({'email': email, 'senha': senha})
+        if (resultado) {
+            let novoToken = jwt.sign({email}, process.env.APP_KEY, {expiresIn: 9000})
             res.json({logado: true, token: novoToken})
         } else {
             res.json({logado: false, mensagem: 'Usuário ou senha errados.'})     
@@ -27,4 +33,4 @@ app.post('/logar', (req, res) => {
     }
 })
 
-module.exports = verificarJWT
+module.exports = autenticacaoRouter

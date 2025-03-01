@@ -17,7 +17,7 @@ alunoRouter.get('/aluno/:id', async function (req, res) {
     try {
         await mongoose.connect(process.env.CONNECTION_STRING)
         const id = req.params.id
-        const alunoBuscado = await aluno.findOne({'id': id})
+        const alunoBuscado = await aluno.findOne({'_id': id})
         res.json({'aluno': alunoBuscado})    
     } catch (error) {
         res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})

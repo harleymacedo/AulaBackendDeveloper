@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config()
 const cors = require('cors')
 const alunoRouter = require('./routers/alunoRouter')
 const grupoRouter = require('./routers/grupoRouter')
+const autenticacao = require('./middlewares/autenticacao')
 
 app.use(cors(
     {
@@ -15,11 +16,14 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(alunoRouter)
 app.use(grupoRouter)
+app.use(autenticacao)
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html')
 })
 
-app.listen(process.env.PORT || 3000, function (req, res) {
-    console.log(`App rodando na ${process.env.PORT}`)
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, function (req, res) {
+    console.log(`App rodando na ${PORT}`)
 })
