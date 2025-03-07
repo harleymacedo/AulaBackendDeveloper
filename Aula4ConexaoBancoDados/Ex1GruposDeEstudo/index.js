@@ -25,5 +25,5 @@ app.get('/', function(req, res) {
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, function (req, res) {
-    console.log(`App rodando na ${PORT}`)
+    console.log(`App rodando na porta ${PORT}`)
 })
