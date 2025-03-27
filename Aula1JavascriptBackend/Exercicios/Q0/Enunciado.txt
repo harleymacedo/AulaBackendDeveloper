@@ -1,0 +1,4 @@
+Questão 0
+.Crie uma função que receba um array de notas de alunos
+.A função deve imprimir quantos alunos estão aprovados (nota maior ou igual a 7) e quantos alunos reprovados (nota menor que 7)
+.Use a função passando um array de notas
