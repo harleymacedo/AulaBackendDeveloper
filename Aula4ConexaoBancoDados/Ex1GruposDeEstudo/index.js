@@ -14,6 +14,7 @@ app.use(cors(
 ))
 app.use(express.static('public'))
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 app.use(alunoRouter)
 app.use(grupoRouter)
 app.use(autenticacao)
