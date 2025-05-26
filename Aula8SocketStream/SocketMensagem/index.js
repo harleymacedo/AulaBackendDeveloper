@@ -20,9 +20,14 @@ io.on('connection', function (socket) {
         io.emit('sincronizarConteudo', conteudo)
     })
 
-    socket.on('mudouTemperatura', function (novaTemperatura) {
+    socket.on('temperatura', function (novaTemperatura) {
         console.log('servidor notificado: mudouTemperatura')
-        io.emit('mudouTemperatura', novaTemperatura)
+        io.emit('temperatura', novaTemperatura)
+    })
+
+    socket.on('bloquear', function () {
+        console.log('servidor notificado: bloquado')
+        io.emit('bloquear')
     })
 })
 
