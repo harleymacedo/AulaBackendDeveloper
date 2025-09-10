@@ -1,4 +1,5 @@
 //Reuso de função em outro arquivo
+//"type": "commonjs", (colocar no package.json)
 const robo = require('./Auxiliar')
 robo.dizOi()
 console.log(robo.nome)
