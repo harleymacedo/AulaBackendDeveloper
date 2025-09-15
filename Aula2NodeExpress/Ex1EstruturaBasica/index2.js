@@ -1,29 +1,20 @@
-//Importando bibliotecas do NodeJS
-const http = require('http')
-const fs = require('fs').promises
+//Importando e instanciando o ExpressJS
+const express = require('express')
+const app = express()
 
-//Mapeando URLs e definindo resposta
-const server = http.createServer((req, res) => {
-    switch (req.url) {
-        case '/recomendacao':
-            res.setHeader("Content-Type", "application/json");
-            res.writeHead(200)
-            res.end( JSON.stringify({recomendacao: 'Lendas da paixão'}) )
-            break
-        case '/lancamentos':
-            res.setHeader("Content-Type", "application/json");
-            res.writeHead(200)
-            res.end( JSON.stringify({recomendacao: ['7 anos no Tibet', 'Tempo de glória']}) )
-            break
-        case '/cadastro':
-            fs.readFile(__dirname + '/public/index.html')
-            .then(contents => {
-                res.setHeader('Content-Type', 'text/html')
-                res.writeHead(200)
-                res.end(contents)
-            })
-    }
+//Uso de middleware
+app.use(express.static('public'))
+
+//Definindo rotas com suas devidas respostas
+app.get('/recomendacao', (req, res) => {
+    res.json({recomendacao: 'Lendas da paixão'})
+})
+app.get('/lancamentos', (req, res) => {
+    res.json({recomendacao: ['7 anos no Tibet', 'Tempo de glória']})
+})
+app.get('/cadastro', (req, res) => {
+    res.sendFile(__dirname + '/public/index2.html')
 })
 
-//Ouvinte de requisição
-server.listen(3000)
+//Ouvinte das requisições
+app.listen(3000)
