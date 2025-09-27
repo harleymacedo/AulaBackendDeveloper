@@ -19,7 +19,7 @@ app.get('/alunos/:cidade', function (req, res) {
 app.get('/estados/todos', async function(req, res) {
     try {
         const conteudo = await fs.readFile(__dirname + '/dados/estados.json')
-        const dados = JSON.stringify(conteudo)
+        const dados = await JSON.stringify(conteudo.data)
         console.log(dados)
         res.json({"mensagem": "Sem erro"})
     } catch (error) {
