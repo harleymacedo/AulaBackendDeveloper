@@ -16,16 +16,17 @@ app.get('/alunos/:cidade', function (req, res) {
     res.json({"quantidade": alunosRequisitados.length, "alunos": alunosRequisitados})
 })
 
-app.get('/estados/todos', async function(req, res) {
+app.get('/cidades/todas', async function(req, res) {
     try {
-        const conteudo = await fs.readFile(__dirname + '/dados/estados.json')
-        const dados = await JSON.stringify(conteudo.data)
+        const conteudo = await fs.readFile(__dirname + '/dados/cidades.json')
+        const dados = JSON.parse(conteudo)
         console.log(dados)
-        res.json({"mensagem": "Sem erro"})
+        res.json({"dados": dados})
     } catch (error) {
         console.log(error.message)
         res.json({"mensagem": "Com erro"})
     }
 })
+
 
 app.listen(3000)

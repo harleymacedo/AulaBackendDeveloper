@@ -1,4 +1,5 @@
-﻿[
+﻿{
+"dados" : [
 	{
 		"codigo_uf": 11,
 		"uf": "RO",
@@ -198,21 +199,6 @@
 		"latitude": -12.64,
 		"longitude": -55.42,
 		"regiao": "Centro-Oeste"
-	},
-	{
-		"codigo_uf": 52,
-		"uf": "GO",
-		"nome": "Goiás",
-		"latitude": -15.98,
-		"longitude": -49.86,
-		"regiao": "Centro-Oeste"
-	},
-	{
-		"codigo_uf": 53,
-		"uf": "DF",
-		"nome": "Distrito Federal",
-		"latitude": -15.83,
-		"longitude": -47.86,
-		"regiao": "Centro-Oeste"
 	}
 ]
+}

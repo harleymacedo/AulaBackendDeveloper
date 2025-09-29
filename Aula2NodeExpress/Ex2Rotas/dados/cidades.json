@@ -1,0 +1,13 @@
+{
+    "cidades": [
+        {
+            "nome": "Crato"
+        }, 
+        {
+            "nome": "Barbalha"
+        },
+        {
+            "nome": "Juazeiro"
+        }
+    ]
+}
