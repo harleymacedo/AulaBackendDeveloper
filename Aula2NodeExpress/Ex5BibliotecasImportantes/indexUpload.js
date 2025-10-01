@@ -11,7 +11,7 @@ const multer = require('multer')
 // Configuração de armazenamento
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, 'public/')
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname)
@@ -26,7 +26,12 @@ app.get('/cadastro', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
 app.post('/recebeDados', upload.single('file'), (req, res) => {
-    res.json({mensagem: 'Arquivo armazenado'})
+    try {
+        res.json({mensagem: 'Arquivo armazenado'})    
+    } catch (error) {
+        res.json({mensagem: error.message})
+    }
+    
 })
 
 //Ouvinte das requisições
