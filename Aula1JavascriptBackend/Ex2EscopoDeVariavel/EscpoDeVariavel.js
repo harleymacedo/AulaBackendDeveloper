@@ -20,3 +20,4 @@ console.log(z)
 //const com mudança de valores do objeto
 const notebook = {marca: 'Apple', modelo: 'Macbook Air'}
 notebook.modelo = 'Macbook Air M1'
+

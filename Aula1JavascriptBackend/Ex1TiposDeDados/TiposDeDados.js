@@ -21,3 +21,9 @@ console.log(typeof idades)
 //Tipo undefined
 var email = undefined
 console.log(typeof email)
+
+//passagem de variável por referência
+const a = [1, 2, 3]
+const b = a
+b.push(4)
+console.log(a)
