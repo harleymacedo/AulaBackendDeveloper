@@ -5,17 +5,17 @@ const verificarJWT = require('../middlewares/autenticacao')
 
 alunoRouter.get('/aluno', async function (req, res) {
     try {
-        await mongoose.connect(process.env.CONNECTION_STRING)
+        await mongoose.connect(process.env.DB_CONNECTION)
         const alunosBuscados = await aluno.find()
         res.json({'alunos': alunosBuscados})
     } catch (error) {
-        res.json({'erro': true, 'mensagem': 'Erro durante a consulta'})
+        res.json({'erro': true, 'mensagem': 'Erro durante a consulta', 'tipo': error.toString()})
     }
 })
 
 alunoRouter.get('/aluno/:id', async function (req, res) {
     try {
-        await mongoose.connect(process.env.CONNECTION_STRING)
+        await mongoose.connect(process.env.DB_CONNECTION)
         const id = req.params.id
         const alunoBuscado = await aluno.findOne({'_id': id})
         res.json({'aluno': alunoBuscado})    
@@ -24,9 +24,9 @@ alunoRouter.get('/aluno/:id', async function (req, res) {
     }
 })
 
-alunoRouter.post('/aluno', verificarJWT, async function (req, res) {
+alunoRouter.post('/aluno', async function (req, res) {
     try {
-        await mongoose.connect(process.env.CONNECTION_STRING)
+        await mongoose.connect(process.env.DB_CONNECTION)
        const dados = req.body
         await aluno.create(dados)
         res.json({mensagem: 'Aluno gravado com sucesso!'})
@@ -37,7 +37,7 @@ alunoRouter.post('/aluno', verificarJWT, async function (req, res) {
 
 alunoRouter.put('/aluno', verificarJWT, async function(req, res) {
     try {
-        await mongoose.connect(process.env.CONNECTION_STRING)
+        await mongoose.connect(process.env.DB_CONNECTION)
         const alunoPassado = req.body
         await aluno.findOneAndUpdate({'id': alunoPassado.id}, alunoPassado)        
         res.json({mensagem: 'Aluno atualizado com sucesso!'})
@@ -48,7 +48,7 @@ alunoRouter.put('/aluno', verificarJWT, async function(req, res) {
 
 alunoRouter.delete('/aluno', verificarJWT, async function(req, res) {
     try {
-        await mongoose.connect(process.env.CONNECTION_STRING)
+        await mongoose.connect(process.env.DB_CONNECTION)
         const dados = req.body
         await aluno.deleteOne(dados)
         res.json({mensagem: 'Aluno excluido com sucesso'})
