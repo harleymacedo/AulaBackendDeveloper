@@ -2,6 +2,7 @@ let array1 = []
 array1[0] = 10
 array1[5] = 20
 console.log(array1)
+console.log(array1[2])
 console.log(array1.length)
 
 array1.forEach( function (valorAtual) {
