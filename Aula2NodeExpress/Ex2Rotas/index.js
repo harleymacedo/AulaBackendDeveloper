@@ -10,6 +10,7 @@ app.use(professorRouter)
 
 app.get('/alunos/:cidade', function (req, res) {
     const cidade = req.params.cidade
+    console.log(cidade)
     const alunosRequisitados = alunos.filter(  function (itemAtual) {
         return itemAtual.cidade === cidade
     })

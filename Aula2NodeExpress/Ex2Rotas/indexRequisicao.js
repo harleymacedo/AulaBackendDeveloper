@@ -6,7 +6,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //Rota que recebe dados JSON
-app.post('/json', (req, res) => {      
+app.post('/json', (req, res) => {     
+    console.log(req.body) 
     res.json({
         dadoEnviado: req.body,
         headers: req.headers,
@@ -15,6 +16,7 @@ app.post('/json', (req, res) => {
 
 //Rota que recebe dados de urlencoded
 app.post('/body', (req, res) => {
+    console.log(req.body)
     res.json({dadoEnviado: req.body})
 })
 
