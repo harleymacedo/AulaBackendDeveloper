@@ -1,1 +1,2 @@
-Atividade: ::1, /, 25/11/2024, 20:54:26
+Atividade: ::ffff:127.0.0.1, GET /rota2?cidade=Manaus, 10/03/2026, 09:05:34
+Atividade: ::ffff:127.0.0.1, GET /rota2?cidade=Manaus, 10/03/2026, 09:05:42
