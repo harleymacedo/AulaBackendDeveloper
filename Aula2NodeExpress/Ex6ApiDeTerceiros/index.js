@@ -4,6 +4,10 @@ const app = express()
 const axios = require('axios')
 const dotenv = require('dotenv').config()
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html')
+})
+
 app.get('/perguntaChat', async (req, res) => {
     const axios = require('axios');
 
