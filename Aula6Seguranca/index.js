@@ -45,8 +45,9 @@ app.get('/login', (req, res) => {
 app.post('/validaLogin', (req, res) => {
     try {
         const {usuario, senha} = req.body
-        if (usuario === process.env.USUARIO && senha === process.env.SENHA) {
-            let novoToken = jwt.sign({usuario}, process.env.APP_KEY, {expiresIn: 9000})
+        console.log(usuario, senha)
+        if (usuario === 'harley' && senha === '123456') {
+            let novoToken = jwt.sign({usuario}, 'lpsodfppjkahdf98789asdrtykdlpasw', {expiresIn: 9000})
             res.json({logado: true, token: novoToken})
         } else {
             res.json({logado: false, mensagem: 'Usuário ou senha errados.'})    
