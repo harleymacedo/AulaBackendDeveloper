@@ -3,7 +3,7 @@ const app = express()
 const fs = require('fs')
 
 app.get('/', (req, res) => {
-    res.json({mensagem: 'Funcionando corretamente'})
+    res.json({ mensagem: 'Funcionando corretamente' })
 })
 
 app.get('/homeMusica', (req, res) => {
@@ -29,10 +29,10 @@ app.get('/musica', (req, res) => {
     }
     res.writeHead(206, headers)
 
-    const stream = fs.createReadStream(musicaPath, {start, end})
+    const stream = fs.createReadStream(musicaPath, { start, end })
     stream.pipe(res)
 })
 
 app.listen(3000, () => {
-    console.log('App rodando na porta 3000')
+    console.log('App rodando na porta 3000 \n Teste a rota: http://localhost:3000/homeMusica')
 })
