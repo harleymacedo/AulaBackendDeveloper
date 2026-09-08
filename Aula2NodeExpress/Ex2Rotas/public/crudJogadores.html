@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar jogadores</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #f2f5f4; color: #18332b; font-family: system-ui, sans-serif; }
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        h1 { margin-bottom: 8px; }
+        h2 { margin-top: 0; font-size: 1.25rem; }
+        p { line-height: 1.5; }
+        section { margin-top: 24px; padding: 24px; background: white; border: 1px solid #d5e0db; border-radius: 12px; }
+        .campos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        label { display: grid; gap: 6px; font-weight: 600; }
+        input, button { font: inherit; border-radius: 6px; padding: 10px 12px; }
+        input { width: 100%; border: 1px solid #8a9f95; }
+        button { cursor: pointer; border: 1px solid #176348; background: #176348; color: white; }
+        button.secundario { background: white; color: #176348; }
+        button.excluir { background: white; color: #a52828; border-color: #a52828; }
+        button:disabled { opacity: .55; cursor: wait; }
+        :focus-visible { outline: 3px solid #d08b13; outline-offset: 3px; }
+        .acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+        .cabecalho h2 { margin: 0; }
+        .tabela { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 12px 8px; border-bottom: 1px solid #e0e8e4; }
+        th { background: #f2f5f4; white-space: nowrap; }
+        td:last-child { display: flex; gap: 8px; }
+        #mensagem { padding: 12px; border-radius: 6px; background: #e2f1e8; }
+        #mensagem.erro { background: #fce8e8; color: #8d2020; }
+        [hidden] { display: none !important; }
+        @media (max-width: 650px) { .campos { grid-template-columns: 1fr; } main { margin: 24px auto; } section { padding: 16px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Gerenciar jogadores</h1>
+        <p>Cadastre, consulte, edite e exclua jogadores. Os dados são mockados e reiniciam com o servidor.</p>
+        <p id="mensagem" role="status" aria-live="polite" hidden></p>
+
+        <section aria-labelledby="tituloFormulario">
+            <h2 id="tituloFormulario">Novo jogador</h2>
+            <form id="formulario">
+                <div class="campos">
+                    <label>Nome<input name="nome" required></label>
+                    <label>Idade<input name="idade" type="number" min="1" step="1" required></label>
+                    <label>Time<input name="time" required></label>
+                    <label>Peso (kg)<input name="peso" type="number" min="0.01" step="any" required></label>
+                    <label>Altura (m)<input name="altura" type="number" min="0.01" step="any" required></label>
+                    <label>Posição<input name="posicao" list="posicoes" required></label>
+                </div>
+                <datalist id="posicoes">
+                    <option value="Goleiro"><option value="Zagueiro"><option value="Lateral">
+                    <option value="Volante"><option value="Meio-campista"><option value="Atacante">
+                </datalist>
+                <div class="acoes">
+                    <button id="salvar" type="submit">Cadastrar jogador</button>
+                    <button id="cancelar" class="secundario" type="button" hidden>Cancelar edição</button>
+                </div>
+            </form>
+        </section>
+
+        <section aria-labelledby="tituloLista">
+            <div class="cabecalho">
+                <h2 id="tituloLista">Jogadores cadastrados</h2>
+                <button id="atualizar" class="secundario" type="button">Atualizar lista</button>
+            </div>
+            <p id="estadoLista">Carregando jogadores…</p>
+            <div class="tabela">
+                <table aria-label="Jogadores cadastrados">
+                    <thead><tr><th>ID</th><th>Nome</th><th>Idade</th><th>Time</th><th>Peso (kg)</th><th>Altura (m)</th><th>Posição</th><th>Ações</th></tr></thead>
+                    <tbody id="jogadores"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const formulario = document.querySelector('#formulario')
+        const mensagem = document.querySelector('#mensagem')
+        const corpoTabela = document.querySelector('#jogadores')
+        const estadoLista = document.querySelector('#estadoLista')
+        const salvar = document.querySelector('#salvar')
+        const cancelar = document.querySelector('#cancelar')
+        let idEdicao = null
+        let ocupado = false
+
+        function avisar(texto, erro = false) {
+            mensagem.textContent = texto
+            mensagem.classList.toggle('erro', erro)
+            mensagem.hidden = false
+        }
+
+        // Usa a mesma origem do Express, sem precisar configurar CORS.
+        async function requisitar(caminho = '', metodo = 'GET', dados) {
+            const resposta = await fetch(`/jogadores${caminho}`, {
+                method: metodo,
+                headers: { 'Content-Type': 'application/json' },
+                body: dados === undefined ? undefined : JSON.stringify(dados)
+            })
+            if (resposta.status === 204) return
+            const resultado = await resposta.json()
+            if (!resposta.ok) throw new Error(resultado.erro || `Erro HTTP ${resposta.status}`)
+            return resultado
+        }
+
+        async function executar(acao) {
+            if (ocupado) return
+            ocupado = true
+            document.querySelectorAll('button').forEach(botao => { botao.disabled = true })
+            try {
+                await acao()
+            } catch (erro) {
+                avisar(`Não foi possível concluir a operação: ${erro.message}`, true)
+            } finally {
+                ocupado = false
+                document.querySelectorAll('button').forEach(botao => { botao.disabled = false })
+            }
+        }
+
+        function limparFormulario() {
+            idEdicao = null
+            formulario.reset()
+            document.querySelector('#tituloFormulario').textContent = 'Novo jogador'
+            salvar.textContent = 'Cadastrar jogador'
+            cancelar.hidden = true
+        }
+
+        async function listar() {
+            let jogadores
+            try {
+                jogadores = await requisitar()
+            } catch (erro) {
+                estadoLista.textContent = 'Falha ao atualizar a lista. Clique em Atualizar lista para tentar novamente.'
+                estadoLista.hidden = false
+                throw erro
+            }
+            corpoTabela.replaceChildren()
+            estadoLista.textContent = 'Nenhum jogador cadastrado.'
+            estadoLista.hidden = jogadores.length > 0
+            for (const jogador of jogadores) {
+                const linha = document.createElement('tr')
+                for (const campo of ['id', 'nome', 'idade', 'time', 'peso', 'altura', 'posicao']) {
+                    const celula = document.createElement('td')
+                    celula.textContent = jogador[campo]
+                    linha.append(celula)
+                }
+                const acoes = document.createElement('td')
+                for (const [texto, classe, acao] of [
+                    ['Editar', 'secundario', () => editar(jogador.id)],
+                    ['Excluir', 'excluir', () => excluir(jogador.id, jogador.nome)]
+                ]) {
+                    const botao = document.createElement('button')
+                    botao.type = 'button'
+                    botao.textContent = texto
+                    botao.className = classe
+                    botao.disabled = ocupado
+                    botao.setAttribute('aria-label', `${texto} ${jogador.nome}`)
+                    botao.addEventListener('click', () => executar(acao))
+                    acoes.append(botao)
+                }
+                linha.append(acoes)
+                corpoTabela.append(linha)
+            }
+        }
+
+        // Consulta GET /jogadores/:id antes de preencher a edição.
+        async function editar(id) {
+            const jogador = await requisitar(`/${id}`)
+            idEdicao = jogador.id
+            for (const campo of ['nome', 'idade', 'time', 'peso', 'altura', 'posicao']) {
+                formulario.elements[campo].value = jogador[campo]
+            }
+            document.querySelector('#tituloFormulario').textContent = `Editar jogador #${id}`
+            salvar.textContent = 'Salvar alterações'
+            cancelar.hidden = false
+            avisar(`Jogador #${id} carregado para edição.`)
+            formulario.elements.nome.focus()
+        }
+
+        async function excluir(id, nome) {
+            if (!confirm(`Excluir o jogador ${nome}?`)) return
+            await requisitar(`/${id}`, 'DELETE')
+            if (idEdicao === id) limparFormulario()
+            avisar('Jogador excluído com sucesso.')
+            await listar()
+        }
+
+        formulario.addEventListener('submit', evento => {
+            evento.preventDefault()
+            executar(async () => {
+                const dados = Object.fromEntries(new FormData(formulario))
+                for (const campo of ['nome', 'time', 'posicao']) dados[campo] = dados[campo].trim()
+                for (const campo of ['idade', 'peso', 'altura']) dados[campo] = Number(dados[campo])
+                const editando = idEdicao !== null
+                await requisitar(editando ? `/${idEdicao}` : '', editando ? 'PUT' : 'POST', dados)
+                limparFormulario()
+                avisar(editando ? 'Jogador atualizado com sucesso.' : 'Jogador cadastrado com sucesso.')
+                await listar()
+            })
+        })
+
+        cancelar.addEventListener('click', limparFormulario)
+        document.querySelector('#atualizar').addEventListener('click', () => executar(listar))
+        if (location.protocol === 'file:') {
+            estadoLista.textContent = 'Abra esta tela pelo servidor Express.'
+            avisar('Inicie indexCRUD.js e acesse http://localhost:3000/crudJogadores.html.', true)
+        } else {
+            executar(listar)
+        }
+    </script>
+</body>
+</html>
