@@ -1,7 +1,11 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 
 app.use(express.json())
+app.get('/crudJogadores.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'crudJogadores.html'))
+})
 
 // Dados fictícios em memória. Peso em kg e altura em metros.
 // As alterações são perdidas quando o servidor é reiniciado.
@@ -77,5 +81,9 @@ if (require.main === module) {
         console.log('API de jogadores disponível em http://localhost:3000')
     })
 }
+
+app.get('/home', (req, res) => {
+    res.sendFile(__dirname + '/public/crudJogadores.html')
+})
 
 module.exports = app
